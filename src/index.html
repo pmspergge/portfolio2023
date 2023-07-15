@@ -779,28 +779,28 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form method="POST" id="form">
+            <form action="https://api.web3forms.com/submit" method="POST" id="form">
 
-              <input type="hidden" name="access_key" value="70be9831-cba5-4405-aa82-d3874d2205a0">
+              <input type="hidden" name="apikey" value="70be9831-cba5-4405-aa82-d3874d2205a0">
 
               <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" name="name" class="form-control" id="name">
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" name="email" class="form-control" id="email">
               </div>
 
               <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
+                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
             <div id="result"></div>
 
           </div>
@@ -844,6 +844,7 @@
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script>
     const form = document.getElementById('form');
     const result = document.getElementById('result');
