@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+.skills .list-unstyled {
+    padding-left: 0;
+    cursor: pointer;
+  }
+  
+  .skills .list-unstyled li {
+    font-size: 1.2em;
+    line-height: 1.6;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .skill-icon {
+    font-size: 2em;
+    color: #0400e5;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .skill-item:hover .skill-icon {
+    color: #9900fe;
+    transform: scale(1.2);
+  }
+  
+  .skill-item:hover span {
+    color: #9900fe;
+    transform: scale(1.05);
+  }
+  
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode a {
+    color: #ffffff;
+  }
+  
+  body.dark-mode .navbar, body.dark-mode .nav-link {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body.dark-mode .section-bg {
+    background-color: #1e1e1e;
+  }
+  
+  body.dark-mode .btn {
+    background-color: #ffffff;
+    color: #121212;
+  }
+  
