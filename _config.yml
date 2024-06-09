@@ -1,0 +1,14 @@
+title: "Mi Portafolio"
+description: "El portafolio de Matias Spergge"
+baseurl: "/portfolio2023" # Cambia esto si tu repositorio tiene un nombre diferente.
+url: "https://tu-usuario.github.io" # Cambia esto a tu URL de GitHub Pages.
+
+# Configuración de Jekyll
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Directorios de origen y destino
+source: "."
+destination: "./_site"
