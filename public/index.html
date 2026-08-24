@@ -1,89 +1,1085 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="es" data-theme="dark" data-lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Matias Spergge — Ssr. Software Engineer especializado en Fraud Prevention en MercadoLibre." />
+  <title>Matias Spergge — Software Engineer</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/10.12.2/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/favicon.png" />
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --accent:       #7c9cff;
+      --accent-dim:   #3a4a7a;
+      --accent-glow:  rgba(124,156,255,0.12);
+
+      --radius-sm: 5px;
+      --radius-md: 9px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --transition: 0.2s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg:           #0d0d0f;
+      --bg-card:      #131316;
+      --bg-subtle:    #18181c;
+      --bg-hover:     #1e1e24;
+      --border:       rgba(255,255,255,0.07);
+      --border-strong:rgba(255,255,255,0.13);
+      --text-primary: #ece9e1;
+      --text-secondary:#8a8880;
+      --text-muted:   #4a4a48;
+      --text-on-accent:#0d0d0f;
+    }
+
+    [data-theme="light"] {
+      --bg:           #f5f4f0;
+      --bg-card:      #ffffff;
+      --bg-subtle:    #eeedea;
+      --bg-hover:     #e8e7e3;
+      --border:       rgba(0,0,0,0.08);
+      --border-strong:rgba(0,0,0,0.15);
+      --text-primary: #18181a;
+      --text-secondary:#5a5a58;
+      --text-muted:   #aaa9a6;
+      --text-on-accent:#ffffff;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { display: block; max-width: 100%; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: var(--bg-hover);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+    }
+
+    .lang-btn {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 3px 8px;
+      border-radius: 3px;
+      transition: all var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--text-on-accent);
+    }
+    .lang-btn:not(.active):hover {
+      color: var(--text-primary);
+    }
+
+    .theme-toggle {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      transition: all var(--transition);
+      font-size: 15px;
+    }
+    .theme-toggle:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-xl);
+      padding: 5px 14px 5px 10px;
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 28px;
+      font-family: var(--font-mono);
+    }
+
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 2.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.25; transform: scale(0.7); }
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .hero-name {
+      font-size: clamp(42px, 7vw, 64px);
+      font-weight: 600;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .hero-name .accent { color: var(--accent); }
+
+    .hero-role {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .hero-role strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero-bio {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--text-on-accent);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 20px;
+      border-radius: var(--radius-md);
+      transition: opacity var(--transition);
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 13px;
+      border: 1px solid var(--border-strong);
+      padding: 9px 20px;
+      border-radius: var(--radius-md);
+      transition: all var(--transition);
+    }
+    .btn-secondary:hover {
+      color: var(--text-primary);
+      border-color: var(--accent);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+    }
+
+    .hero-stat-val {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-family: var(--font-mono);
+    }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+    }
+
+    .hero-photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 2px solid var(--border-strong);
+      background: var(--bg-subtle);
+    }
+
+    .hero-photo-placeholder {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 2px solid var(--border-strong);
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── SKILLS STRIP ───────────────────────────────────────── */
+    .skills-strip {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .strip-label {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+
+    .chip {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      white-space: nowrap;
+    }
+    .chip.hi {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    /* ─── SECTIONS ───────────────────────────────────────────── */
+    section {
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────────────────────── */
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 1;
+      transition: opacity var(--transition);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-item.dim { opacity: 0.45; }
+
+    .exp-logo {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .logo-meli  { background: #fff200; color: #1a1600; }
+    .logo-avla  { background: #0a1f44; color: #7c9cff; border: 1px solid rgba(124,156,255,0.2); }
+    .logo-tech  { background: #1e1014; color: #ff9580; border: 1px solid rgba(255,149,128,0.15); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+    }
+
+    .exp-company {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .exp-date {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .exp-role {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .tag.accent {
+      background: var(--accent-glow);
+      color: var(--accent);
+      border-color: var(--accent-dim);
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: border-color var(--transition), background var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .project-card:hover { border-color: var(--border-strong); }
+    .project-card.featured { border-color: var(--accent-dim); background: var(--accent-glow); }
+
+    .project-emoji { font-size: 22px; line-height: 1; }
+
+    .project-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .project-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .project-link {
+      font-size: 11px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity var(--transition);
+    }
+    .project-link:hover { opacity: 0.7; }
+
+    /* ─── ABOUT ──────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+    }
+
+    .about-card-label {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .about-card-value {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .about-card-value a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    .contact-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      transition: all var(--transition);
+    }
+    .contact-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .contact-icon { font-size: 16px; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--text-primary); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 38px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────────── -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <span class="nav-logo">mspergge.dev</span>
+
+      <ul class="nav-links">
+        <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
+        <li><a href="#projects"   data-i18n="nav.projects">Proyectos</a></li>
+        <li><a href="#about"      data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="#contact"    data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <div class="lang-switcher" role="group" aria-label="Idioma">
+          <button class="lang-btn active" data-lang-btn="es">ES</button>
+          <button class="lang-btn"        data-lang-btn="en">EN</button>
+          <button class="lang-btn"        data-lang-btn="pt">PT</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </div>
+</nav>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+<!-- ─── HERO ──────────────────────────────────────────────────── -->
+<div class="container">
+  <section class="hero" id="hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span data-i18n="hero.badge">Available for talks & side projects</span>
+    </div>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <h1 class="hero-name">Matias<br><span class="accent">Spergge</span></h1>
+
+        <p class="hero-role">
+          Ssr. Software Engineer &nbsp;·&nbsp;
+          <strong data-i18n="hero.role">Fraud Prevention @ MercadoLibre</strong>
+        </p>
+
+        <p class="hero-bio" data-i18n="hero.bio">
+          Ingeniero backend enfocado en detección y prevención de fraude en el ecosistema
+          de e-commerce más grande de Latinoamérica. Construyo sistemas escalables con Java/Spring
+          sobre la plataforma Fury de Mercado Libre, protegiendo millones de compradores y vendedores.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="hero.cta_cv">Descargar CV</a>
+          <a class="btn-secondary" href="#contact" data-i18n="hero.cta_contact">Contacto</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">~2</div>
+            <div class="hero-stat-label" data-i18n="hero.stat1">años en MercadoLibre</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">4+</div>
+            <div class="hero-stat-label" data-i18n="hero.stat2">años de exp. profesional</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">Latam</div>
+            <div class="hero-stat-label" data-i18n="hero.stat3">escala de impacto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <img src="assets/img/foto.jpg" alt="Matias Spergge" class="hero-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS STRIP ──────────────────────────────────────── -->
+  <div class="skills-strip">
+    <span class="strip-label">Stack</span>
+    <span class="chip hi">Java 17</span>
+    <span class="chip hi">Spring Boot</span>
+    <span class="chip hi">Fury (ML)</span>
+    <span class="chip">Angular</span>
+    <span class="chip">TypeScript</span>
+    <span class="chip">PostgreSQL</span>
+    <span class="chip">Docker</span>
+    <span class="chip">Kubernetes</span>
+    <span class="chip">AWS</span>
+    <span class="chip">Node.js</span>
+    <span class="chip">MongoDB</span>
+  </div>
+
+  <!-- ─── EXPERIENCE ─────────────────────────────────────────── -->
+  <section id="experience">
+    <p class="section-eyebrow" data-i18n="nav.experience">Experiencia</p>
+
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-logo logo-meli" aria-hidden="true">ML</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-company">MercadoLibre</span>
+            <span class="exp-date" data-i18n="exp.meli.date">Nov 2024 – Presente</span>
+          </div>
+          <p class="exp-role" data-i18n="exp.meli.role">Ssr. Software Engineer · Backend VIS & Marketing</p>
+          <div class="tag-row">
+            <span class="tag accent" data-i18n="exp.meli.tag1">Fraud Prevention</span>
+            <span class="tag accent">Java / Spring</span>
+            <span class="tag accent">Fury platform</span>
+            <span class="tag">Microservicios</span>
+            <span class="tag">Fintech</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item dim">
+        <div class="exp-logo logo-avla" aria-hidden="true">AV</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-company">AVLA</span>
+            <span class="exp-date" data-i18n="exp.avla.date">Jun 2023 – Nov 2024</span>
+          </div>
+          <p class="exp-role" data-i18n="exp.avla.role">Full Stack Developer · PortalApp (remoto, Chile)</p>
+          <div class="tag-row">
+            <span class="tag">Angular 16</span>
+            <span class="tag">Spring Boot 3</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Docker</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item dim">
+        <div class="exp-logo logo-tech" aria-hidden="true">TF</div>
+        <div>
+          <div class="exp-header">
+            <span class="exp-company">Techforb</span>
+            <span class="exp-date" data-i18n="exp.tech.date">Abr 2023 – Nov 2024</span>
+          </div>
+          <p class="exp-role" data-i18n="exp.tech.role">Full Stack Developer (remoto, USA)</p>
+          <div class="tag-row">
+            <span class="tag">Angular</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MongoDB</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────── -->
+  <section id="projects">
+    <p class="section-eyebrow" data-i18n="nav.projects">Proyectos</p>
+
+    <div class="projects-grid">
+
+      <div class="project-card featured">
+        <div class="project-emoji">🐾</div>
+        <div class="project-name" data-i18n="proj.patitas.name">Fundación Patitas</div>
+        <p class="project-desc" data-i18n="proj.patitas.desc">
+          PWA para fundación de rescate animal. Galería de adopción, panel admin, donaciones vía MercadoPago y backend serverless con Supabase.
+        </p>
+        <div class="project-footer">
+          <div class="tag-row">
+            <span class="tag">PWA</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">MercadoPago</span>
+          </div>
+          <a class="project-link" href="https://github.com/pmspergge" target="_blank" rel="noopener">
+            GitHub →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-emoji">🏢</div>
+        <div class="project-name" data-i18n="proj.spa.name">SPA Administración</div>
+        <p class="project-desc" data-i18n="proj.spa.desc">
+          Sitio institucional moderno para administración de consorcios. PWA estática con animaciones y tipografía bold.
+        </p>
+        <div class="project-footer">
+          <div class="tag-row">
+            <span class="tag">PWA</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">HTML/CSS/JS</span>
+          </div>
+          <a class="project-link" href="https://administracionspa.com.ar" target="_blank" rel="noopener">
+            Ver sitio →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-emoji">🎓</div>
+        <div class="project-name" data-i18n="proj.univ.name">University Claims</div>
+        <p class="project-desc" data-i18n="proj.univ.desc">
+          Plataforma web de reclamos universitarios. Desarrollado en equipo con Scrum, presentado en evento de comunidad.
+        </p>
+        <div class="project-footer">
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+          </div>
+          <a class="project-link" href="https://github.com/pmspergge/SitioWeb_Universidad_Reclamos_y_Quejas" target="_blank" rel="noopener">
+            GitHub →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-emoji">🛒</div>
+        <div class="project-name" data-i18n="proj.arg.name">Argentina Programa</div>
+        <p class="project-desc" data-i18n="proj.arg.desc">
+          Proyecto final del programa. Full Stack: Angular 15 + Spring Boot + MySQL. Deploy en Firebase y Railway.
+        </p>
+        <div class="project-footer">
+          <div class="tag-row">
+            <span class="tag">Angular 15</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <a class="project-link" href="https://frontendargprograma-e695a.web.app/" target="_blank" rel="noopener">
+            Ver demo →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────── -->
+  <section id="about">
+    <p class="section-eyebrow" data-i18n="nav.about">Sobre mí</p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <p class="about-card-label" data-i18n="about.loc.label">Ubicación</p>
+        <p class="about-card-value">La Plata, Buenos Aires, Argentina</p>
+      </div>
+      <div class="about-card">
+        <p class="about-card-label" data-i18n="about.edu.label">Educación</p>
+        <p class="about-card-value" data-i18n="about.edu.value">Tecnicatura en Desarrollo de Software · IFTS N°29 · 2025</p>
+      </div>
+      <div class="about-card">
+        <p class="about-card-label" data-i18n="about.focus.label">Foco actual</p>
+        <p class="about-card-value" data-i18n="about.focus.value">Backend engineering, sistemas distribuidos, detección de fraude a escala Latam.</p>
+      </div>
+      <div class="about-card">
+        <p class="about-card-label" data-i18n="about.lang.label">Idiomas</p>
+        <p class="about-card-value" data-i18n="about.lang.value">Español (nativo) · Inglés (profesional)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────── -->
+  <section id="contact">
+    <p class="section-eyebrow" data-i18n="nav.contact">Contacto</p>
+
+    <div class="contact-row">
+      <a class="contact-btn" href="https://www.linkedin.com/in/pedro-matias-spergge/" target="_blank" rel="noopener">
+        <span class="contact-icon">💼</span>
+        LinkedIn
+      </a>
+      <a class="contact-btn" href="https://github.com/pmspergge" target="_blank" rel="noopener">
+        <span class="contact-icon">🐙</span>
+        GitHub
+      </a>
+      <a class="contact-btn" href="mailto:pmatiasspergge@gmail.com">
+        <span class="contact-icon">✉️</span>
+        pmatiasspergge@gmail.com
+      </a>
+      <a class="contact-btn" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="contact.cv">
+        <span class="contact-icon">📄</span>
+        Descargar CV
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-copy">© <span id="year"></span> Matias Spergge</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/pedro-matias-spergge/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/pmspergge" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:pmatiasspergge@gmail.com">Email</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ─── JS ──────────────────────────────────────────────────── -->
+<script>
+  /* ── i18n ────────────────────────────────────────────────── */
+  const STRINGS = {
+    es: {
+      "nav.experience":     "Experiencia",
+      "nav.projects":       "Proyectos",
+      "nav.about":          "Sobre mí",
+      "nav.contact":        "Contacto",
+      "hero.badge":         "Available for talks & side projects",
+      "hero.role":          "Fraud Prevention @ MercadoLibre",
+      "hero.bio":           "Ingeniero backend enfocado en detección y prevención de fraude en el ecosistema de e-commerce más grande de Latinoamérica. Construyo sistemas escalables con Java/Spring sobre la plataforma Fury, protegiendo millones de compradores y vendedores.",
+      "hero.cta_cv":        "Descargar CV",
+      "hero.cta_contact":   "Contacto",
+      "hero.stat1":         "años en MercadoLibre",
+      "hero.stat2":         "años de exp. profesional",
+      "hero.stat3":         "escala de impacto",
+      "exp.meli.date":      "Nov 2024 – Presente",
+      "exp.meli.role":      "Ssr. Software Engineer · Backend VIS & Marketing",
+      "exp.meli.tag1":      "Prevención de fraude",
+      "exp.avla.date":      "Jun 2023 – Nov 2024",
+      "exp.avla.role":      "Full Stack Developer · PortalApp (remoto, Chile)",
+      "exp.tech.date":      "Abr 2023 – Nov 2024",
+      "exp.tech.role":      "Full Stack Developer (remoto, USA)",
+      "proj.patitas.name":  "Fundación Patitas",
+      "proj.patitas.desc":  "PWA para fundación de rescate animal. Galería de adopción, panel admin, donaciones vía MercadoPago y backend serverless con Supabase.",
+      "proj.spa.name":      "SPA Administración",
+      "proj.spa.desc":      "Sitio institucional moderno para administración de consorcios. PWA estática con animaciones y tipografía bold.",
+      "proj.univ.name":     "University Claims",
+      "proj.univ.desc":     "Plataforma web de reclamos universitarios. Desarrollado en equipo con Scrum, presentado en evento de comunidad.",
+      "proj.arg.name":      "Argentina Programa",
+      "proj.arg.desc":      "Proyecto final del programa. Full Stack: Angular 15 + Spring Boot + MySQL. Deploy en Firebase y Railway.",
+      "about.loc.label":    "Ubicación",
+      "about.edu.label":    "Educación",
+      "about.edu.value":    "Tecnicatura en Desarrollo de Software · IFTS N°29 · 2025",
+      "about.focus.label":  "Foco actual",
+      "about.focus.value":  "Backend engineering, sistemas distribuidos, detección de fraude a escala Latam.",
+      "about.lang.label":   "Idiomas",
+      "about.lang.value":   "Español (nativo) · Inglés (profesional)",
+      "contact.cv":         "Descargar CV",
+    },
+    en: {
+      "nav.experience":     "Experience",
+      "nav.projects":       "Projects",
+      "nav.about":          "About",
+      "nav.contact":        "Contact",
+      "hero.badge":         "Available for talks & side projects",
+      "hero.role":          "Fraud Prevention @ MercadoLibre",
+      "hero.bio":           "Backend engineer focused on fraud detection and prevention in the largest e-commerce ecosystem in Latin America. I build scalable systems with Java/Spring on MercadoLibre's Fury platform, protecting millions of buyers and sellers.",
+      "hero.cta_cv":        "Download CV",
+      "hero.cta_contact":   "Contact me",
+      "hero.stat1":         "years at MercadoLibre",
+      "hero.stat2":         "years professional exp.",
+      "hero.stat3":         "impact scale",
+      "exp.meli.date":      "Nov 2024 – Present",
+      "exp.meli.role":      "Ssr. Software Engineer · Backend VIS & Marketing",
+      "exp.meli.tag1":      "Fraud Prevention",
+      "exp.avla.date":      "Jun 2023 – Nov 2024",
+      "exp.avla.role":      "Full Stack Developer · PortalApp (remote, Chile)",
+      "exp.tech.date":      "Apr 2023 – Nov 2024",
+      "exp.tech.role":      "Full Stack Developer (remote, USA)",
+      "proj.patitas.name":  "Fundación Patitas",
+      "proj.patitas.desc":  "PWA for an animal rescue foundation. Adoption gallery, admin panel, MercadoPago donations, and serverless backend with Supabase.",
+      "proj.spa.name":      "SPA Administración",
+      "proj.spa.desc":      "Modern institutional site for consortium management. Static PWA with animations and bold typography.",
+      "proj.univ.name":     "University Claims",
+      "proj.univ.desc":     "Web platform for university complaints. Built with a team using Scrum, showcased at a community event.",
+      "proj.arg.name":      "Argentina Programa",
+      "proj.arg.desc":      "Final project of the national program. Full Stack: Angular 15 + Spring Boot + MySQL. Deployed on Firebase and Railway.",
+      "about.loc.label":    "Location",
+      "about.edu.label":    "Education",
+      "about.edu.value":    "Software Development Technician · IFTS N°29 · 2025",
+      "about.focus.label":  "Current focus",
+      "about.focus.value":  "Backend engineering, distributed systems, fraud detection at Latam scale.",
+      "about.lang.label":   "Languages",
+      "about.lang.value":   "Spanish (native) · English (professional)",
+      "contact.cv":         "Download CV",
+    },
+    pt: {
+      "nav.experience":     "Experiência",
+      "nav.projects":       "Projetos",
+      "nav.about":          "Sobre mim",
+      "nav.contact":        "Contato",
+      "hero.badge":         "Disponível para talks & side projects",
+      "hero.role":          "Prevenção de Fraude @ MercadoLibre",
+      "hero.bio":           "Engenheiro backend focado em detecção e prevenção de fraude no maior ecossistema de e-commerce da América Latina. Construo sistemas escaláveis com Java/Spring na plataforma Fury do MercadoLibre, protegendo milhões de compradores e vendedores.",
+      "hero.cta_cv":        "Baixar CV",
+      "hero.cta_contact":   "Contato",
+      "hero.stat1":         "anos no MercadoLibre",
+      "hero.stat2":         "anos de exp. profissional",
+      "hero.stat3":         "escala de impacto",
+      "exp.meli.date":      "Nov 2024 – Presente",
+      "exp.meli.role":      "Ssr. Software Engineer · Backend VIS & Marketing",
+      "exp.meli.tag1":      "Prevenção de Fraude",
+      "exp.avla.date":      "Jun 2023 – Nov 2024",
+      "exp.avla.role":      "Full Stack Developer · PortalApp (remoto, Chile)",
+      "exp.tech.date":      "Abr 2023 – Nov 2024",
+      "exp.tech.role":      "Full Stack Developer (remoto, EUA)",
+      "proj.patitas.name":  "Fundación Patitas",
+      "proj.patitas.desc":  "PWA para fundação de resgate animal. Galeria de adoção, painel admin, doações via MercadoPago e backend serverless com Supabase.",
+      "proj.spa.name":      "SPA Administración",
+      "proj.spa.desc":      "Site institucional moderno para administração de condomínios. PWA estática com animações e tipografia bold.",
+      "proj.univ.name":     "University Claims",
+      "proj.univ.desc":     "Plataforma web de reclamações universitárias. Desenvolvido em equipe com Scrum, apresentado em evento de comunidade.",
+      "proj.arg.name":      "Argentina Programa",
+      "proj.arg.desc":      "Projeto final do programa nacional. Full Stack: Angular 15 + Spring Boot + MySQL. Deploy no Firebase e Railway.",
+      "about.loc.label":    "Localização",
+      "about.edu.label":    "Educação",
+      "about.edu.value":    "Técnico em Desenvolvimento de Software · IFTS N°29 · 2025",
+      "about.focus.label":  "Foco atual",
+      "about.focus.value":  "Engenharia backend, sistemas distribuídos, detecção de fraude em escala Latam.",
+      "about.lang.label":   "Idiomas",
+      "about.lang.value":   "Espanhol (nativo) · Inglês (profissional)",
+      "contact.cv":         "Baixar CV",
+    }
+  };
+
+  let currentLang = 'es';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    const strings = STRINGS[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (strings[key] !== undefined) el.textContent = strings[key];
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+  }
+
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang-btn')));
+  });
+
+  /* ── Theme toggle ─────────────────────────────────────────── */
+  const themeToggle = document.getElementById('themeToggle');
+  let dark = true;
+
+  function applyTheme(isDark) {
+    dark = isDark;
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    themeToggle.textContent = isDark ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+  }
+
+  themeToggle.addEventListener('click', () => applyTheme(!dark));
+
+  /* respect OS preference on first load */
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    applyTheme(false);
+  }
+
+  /* ── Footer year ──────────────────────────────────────────── */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Init ─────────────────────────────────────────────────── */
+  applyLang('es');
+</script>
+
+</body>
 </html>
