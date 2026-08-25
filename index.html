@@ -182,7 +182,7 @@
 
     /* ─── HERO ────────────────────────────────────────────── */
     .hero {
-      padding: 88px 0 72px;
+      padding: 72px 0 60px;
       border-bottom: 1px solid var(--border);
       position: relative;
       overflow: hidden;
@@ -207,7 +207,7 @@
       padding: 5px 14px 5px 10px;
       font-size: 12px;
       color: var(--accent);
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       font-family: var(--font-mono);
       animation: fadeSlideUp 0.6s var(--ease-out) both;
     }
@@ -328,7 +328,7 @@
 
     .photo-ring {
       position: relative;
-      width: 180px; height: 180px;
+      width: 200px; height: 200px;
     }
     .photo-ring::before {
       content: '';
@@ -344,10 +344,10 @@
     .hero-photo {
       position: relative;
       z-index: 1;
-      width: 180px; height: 180px;
+      width: 200px; height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 18%;
+      object-position: center 30%;
       border: 3px solid var(--bg);
       background: var(--bg-subtle);
     }
@@ -681,14 +681,19 @@
     /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 640px) {
       .nav-links          { display: none; }
-      .hero-layout        { grid-template-columns: 1fr; grid-template-rows: auto auto; }
-      .hero-photo-wrap    { order: -1; margin-bottom: 28px; }
-      .photo-ring         { width: 120px; height: 120px; margin: 0 auto; }
-      .hero-photo         { width: 120px; height: 120px; }
+      .hero-layout        { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 0; }
+      .hero-photo-wrap    { order: -1; margin-bottom: 16px; }
+      .photo-ring         { width: 110px; height: 110px; margin: 0 auto; }
+      .hero-photo         { width: 110px; height: 110px; }
       .hero-stats         { gap: 20px; flex-wrap: wrap; }
       .projects-grid      { grid-template-columns: 1fr; }
       .about-grid         { grid-template-columns: 1fr; }
       .hero-name          { font-size: 40px; }
+      .hero              { padding: 40px 0 40px; }
+      .hero-badge        { margin-bottom: 16px; }
+      .hero-name         { margin-bottom: 6px; }
+      .hero-bio          { margin-bottom: 24px; }
+      .hero-actions      { margin-bottom: 28px; }
       .container          { padding: 0 18px; }
     }
   </style>
@@ -727,7 +732,7 @@
   <section class="hero" id="hero">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      <span data-i18n="hero.badge">Available for talks & side projects</span>
+      <span data-i18n="hero.badge">Disponible para charlas y side projects</span>
     </div>
 
     <div class="hero-layout">
@@ -799,25 +804,42 @@
     <div class="exp-list">
 
       <div class="exp-item reveal">
-        <div class="exp-logo logo-meli" aria-hidden="true">ML</div>
+        <div class="exp-logo logo-meli"><img src="assets/img/logos/meli.svg" alt="MercadoLibre" style="width:38px;height:38px;border-radius:10px;"></div>
         <div>
           <div class="exp-header">
             <span class="exp-company">MercadoLibre</span>
             <span class="exp-date" data-i18n="exp.meli.date">Nov 2024 – Presente</span>
           </div>
-          <p class="exp-role" data-i18n="exp.meli.role">Ssr. Software Engineer · Backend VIS & Marketing</p>
-          <div class="tag-row">
-            <span class="tag accent" data-i18n="exp.meli.tag1">Prevención de fraude</span>
-            <span class="tag accent">Java / Spring</span>
-            <span class="tag accent">Fury platform</span>
-            <span class="tag">Microservicios</span>
-            <span class="tag">Fintech</span>
+
+          <!-- Rol actual -->
+          <div class="sub-role">
+            <p class="exp-role" data-i18n="exp.meli.role2">Ssr. Software Engineer · PF IT Backend VIS & Marketing</p>
+            <p class="exp-subd" data-i18n="exp.meli.subd2">Ene 2025 – Presente</p>
+            <div class="tag-row" style="margin-bottom:10px;">
+              <span class="tag accent" data-i18n="exp.meli.tag1">Prevención de fraude</span>
+              <span class="tag accent">Java / Spring</span>
+              <span class="tag accent">Fury platform</span>
+              <span class="tag">Microservicios</span>
+              <span class="tag">Fintech</span>
+            </div>
           </div>
+
+          <!-- Rol anterior en Meli -->
+          <div class="sub-role sub-role-dim">
+            <p class="exp-role" data-i18n="exp.meli.role1">Ssr. Software Engineer · PF IT Backend Seller</p>
+            <p class="exp-subd" data-i18n="exp.meli.subd1">Nov 2024 – Ene 2025</p>
+            <div class="tag-row">
+              <span class="tag">Java / Spring</span>
+              <span class="tag">Fury platform</span>
+              <span class="tag">Seller Experience</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <div class="exp-item dim reveal">
-        <div class="exp-logo logo-avla" aria-hidden="true">AV</div>
+        <div class="exp-logo logo-avla"><img src="assets/img/logos/avla.svg" alt="AVLA" style="width:38px;height:38px;border-radius:10px;"></div>
         <div>
           <div class="exp-header">
             <span class="exp-company">AVLA</span>
@@ -836,7 +858,7 @@
       </div>
 
       <div class="exp-item dim reveal">
-        <div class="exp-logo logo-tech" aria-hidden="true">TF</div>
+        <div class="exp-logo logo-tech"><img src="assets/img/logos/techforb.svg" alt="Techforb" style="width:38px;height:38px;border-radius:10px;"></div>
         <div>
           <div class="exp-header">
             <span class="exp-company">Techforb</span>
@@ -863,7 +885,7 @@
     <div class="edu-list">
 
       <div class="edu-item reveal">
-        <div class="edu-logo">🧠</div>
+        <div class="edu-logo" style="padding:0;overflow:hidden;"><img src="assets/img/logos/ubp.svg" alt="UBP" style="width:40px;height:40px;border-radius:10px;"></div>
         <div>
           <div class="exp-header">
             <span class="edu-school">
@@ -883,7 +905,7 @@
       </div>
 
       <div class="edu-item reveal">
-        <div class="edu-logo">💻</div>
+        <div class="edu-logo" style="padding:0;overflow:hidden;"><img src="assets/img/logos/ifts.svg" alt="IFTS" style="width:40px;height:40px;border-radius:10px;"></div>
         <div>
           <div class="exp-header">
             <span class="edu-school">
@@ -1038,7 +1060,7 @@
       "nav.projects":      "Proyectos",
       "nav.about":         "Sobre mí",
       "nav.contact":       "Contacto",
-      "hero.badge":        "Available for talks & side projects",
+      "hero.badge":        "Disponible para charlas y side projects",
       "hero.role":         "Fraud Prevention @ MercadoLibre",
       "hero.bio":          "Ingeniero backend enfocado en detección y prevención de fraude en el ecosistema de e-commerce más grande de Latinoamérica. Construyo sistemas escalables con Java/Spring sobre la plataforma Fury, protegiendo millones de compradores y vendedores.",
       "hero.cta_cv":       "📄 Descargar CV",
@@ -1047,7 +1069,10 @@
       "hero.stat2":        "años de exp. profesional",
       "hero.stat3":        "escala de impacto",
       "exp.meli.date":     "Nov 2024 – Presente",
-      "exp.meli.role":     "Ssr. Software Engineer · Backend VIS & Marketing",
+      "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
+      "exp.meli.subd2":   "Ene 2025 – Presente",
+      "exp.meli.role1":    "Ssr. Software Engineer · PF IT Backend Seller",
+      "exp.meli.subd1":   "Nov 2024 – Ene 2025",
       "exp.meli.tag1":     "Prevención de fraude",
       "exp.avla.date":     "Jun 2023 – Nov 2024",
       "exp.avla.role":     "Full Stack Developer · PortalApp (remoto, Chile)",
@@ -1091,7 +1116,10 @@
       "hero.stat2":        "years professional exp.",
       "hero.stat3":        "impact scale",
       "exp.meli.date":     "Nov 2024 – Present",
-      "exp.meli.role":     "Ssr. Software Engineer · Backend VIS & Marketing",
+      "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
+      "exp.meli.subd2":   "Jan 2025 – Present",
+      "exp.meli.role1":    "Ssr. Software Engineer · PF IT Backend Seller",
+      "exp.meli.subd1":   "Nov 2024 – Jan 2025",
       "exp.meli.tag1":     "Fraud Prevention",
       "exp.avla.date":     "Jun 2023 – Nov 2024",
       "exp.avla.role":     "Full Stack Developer · PortalApp (remote, Chile)",
@@ -1135,7 +1163,10 @@
       "hero.stat2":        "anos de exp. profissional",
       "hero.stat3":        "escala de impacto",
       "exp.meli.date":     "Nov 2024 – Presente",
-      "exp.meli.role":     "Ssr. Software Engineer · Backend VIS & Marketing",
+      "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
+      "exp.meli.subd2":   "Jan 2025 – Presente",
+      "exp.meli.role1":    "Ssr. Software Engineer · PF IT Backend Seller",
+      "exp.meli.subd1":   "Nov 2024 – Jan 2025",
       "exp.meli.tag1":     "Prevenção de Fraude",
       "exp.avla.date":     "Jun 2023 – Nov 2024",
       "exp.avla.role":     "Full Stack Developer · PortalApp (remoto, Chile)",
