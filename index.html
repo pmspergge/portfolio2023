@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Matias Spergge — Ssr. Software Engineer en Mercado Libre (Prevención de Fraude). Estudiante de Licenciatura en Inteligencia Artificial (UBP)." />
-  <meta name="keywords" content="Matias Spergge, Software Engineer, Backend, Mercado Libre, Fraud Prevention, Java, Spring Boot, Fury, Artificial Intelligence, Machine Learning, Argentina" />
+  <meta name="keywords" content="Matias Spergge, Software Engineer, Backend, Mercado Libre, Fraud Prevention, Java, Spring Boot, Fury, Artificial Intelligence, Argentina" />
   <meta name="author" content="Matias Spergge" />
 
   <!-- Open Graph / LinkedIn -->
@@ -22,10 +22,10 @@
 
   <title>Matias Spergge — Ssr. Software Engineer @ Mercado Libre</title>
 
-  <!-- SVG Favicon with High-Res Brand Symbol -->
+  <!-- SVG Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2226%22 fill=%22%2309090b%22/><text y=%2267%22 x=%2250%22 font-size=%2252%22 font-family=%22system-ui,-apple-system,sans-serif%22 font-weight=%22800%22 text-anchor=%22middle%22 fill=%22%236366f1%22>M</text></svg>" />
 
-  <!-- Google Fonts: Inter, Outfit & JetBrains Mono -->
+  <!-- Fonts: Inter, Outfit & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -34,7 +34,8 @@
     /* ─── DESIGN TOKENS & SYSTEM ─────────────────────────── */
     :root {
       --primary:         #6366f1;
-      --primary-glow:    rgba(99, 102, 241, 0.22);
+      --primary-hover:   #4f46e5;
+      --primary-glow:    rgba(99, 102, 241, 0.25);
       --primary-subtle:  rgba(99, 102, 241, 0.08);
       --accent:          #38bdf8;
       --emerald:         #10b981;
@@ -55,27 +56,26 @@
       --ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ─── DARK THEME (Default / Linear OLED) ─────────────── */
+    /* ─── DARK THEME (OLED Deep) ─────────────────────────── */
     [data-theme="dark"] {
       --bg:              #060608;
-      --bg-surface:      #0c0d12;
-      --bg-card:         #12131a;
-      --bg-card-hover:   #171822;
-      --bg-subtle:       #1a1b26;
-      --bg-glass:        rgba(6, 6, 8, 0.78);
+      --bg-surface:      #0d0e14;
+      --bg-card:         #12131b;
+      --bg-card-hover:   #171924;
+      --bg-subtle:       #1b1d2a;
+      --bg-glass:        rgba(6, 6, 8, 0.82);
 
       --border:          rgba(255, 255, 255, 0.08);
       --border-strong:   rgba(255, 255, 255, 0.16);
-      --border-active:   rgba(99, 102, 241, 0.4);
+      --border-active:   rgba(99, 102, 241, 0.45);
 
       --text-primary:    #f8fafc;
       --text-secondary:  #94a3b8;
       --text-muted:      #64748b;
       --text-inverse:    #060608;
 
-      --card-shadow:     0 8px 32px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
-      --hero-mesh:       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.15), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(56, 189, 248, 0.08), transparent 60%);
-      --grid-dot:        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      --card-shadow:     0 10px 36px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      --hero-mesh:       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.18), transparent 70%), radial-gradient(ellipse 60% 40% at 85% 15%, rgba(56, 189, 248, 0.10), transparent 60%);
     }
 
     /* ─── LIGHT THEME ────────────────────────────────────── */
@@ -85,11 +85,11 @@
       --bg-card:         #ffffff;
       --bg-card-hover:   #f8fafc;
       --bg-subtle:       #e2e8f0;
-      --bg-glass:        rgba(248, 250, 252, 0.82);
+      --bg-glass:        rgba(248, 250, 252, 0.85);
 
       --border:          rgba(0, 0, 0, 0.08);
-      --border-strong:   rgba(0, 0, 0, 0.15);
-      --border-active:   rgba(79, 70, 229, 0.4);
+      --border-strong:   rgba(0, 0, 0, 0.16);
+      --border-active:   rgba(79, 70, 229, 0.45);
 
       --text-primary:    #0f172a;
       --text-secondary:  #475569;
@@ -97,8 +97,7 @@
       --text-inverse:    #ffffff;
 
       --card-shadow:     0 8px 30px -4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.06);
-      --hero-mesh:       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.1), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(56, 189, 248, 0.08), transparent 60%);
-      --grid-dot:        radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+      --hero-mesh:       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.12), transparent 70%), radial-gradient(ellipse 60% 40% at 85% 15%, rgba(56, 189, 248, 0.08), transparent 60%);
     }
 
     /* ─── GLOBAL RESETS ──────────────────────────────────── */
@@ -153,7 +152,7 @@
       position: absolute;
       inset: -1px;
       border-radius: inherit;
-      background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--primary-glow), transparent 60%);
+      background: radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--primary-glow), transparent 65%);
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
@@ -206,7 +205,6 @@
     }
 
     .nav-brand-indicator {
-      position: relative;
       width: 8px;
       height: 8px;
       background: var(--primary);
@@ -246,6 +244,24 @@
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .cmd-k-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 5px 8px;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+    .cmd-k-badge:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
     }
 
     .lang-switcher {
@@ -298,7 +314,7 @@
 
     /* ─── HERO SECTION ───────────────────────────────────── */
     .hero {
-      padding: 68px 0 44px;
+      padding: 64px 0 40px;
       position: relative;
     }
 
@@ -441,7 +457,7 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Avatar - Calibrated Crop for Matias */
+    /* Hero Avatar */
     .hero-avatar-frame {
       position: relative;
       flex-shrink: 0;
@@ -479,86 +495,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* Precisely calibrated to focus on Matias (upper body & face) */
       object-position: 70% 55%;
       transform: scale(1.15);
       transition: transform 0.3s ease;
     }
 
-    .hero-avatar-box:hover .hero-avatar-img {
-      transform: scale(1.2);
-    }
-
-    /* ─── LIVE FRAUD ENGINE TERMINAL WIDGET ───────────────── */
-    .terminal-section {
-      margin: 10px 0 36px;
-    }
-
-    .terminal-card {
-      background: #0b0c10;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
-      font-family: var(--font-mono);
-    }
-
-    .terminal-header {
-      background: #14151c;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .terminal-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .terminal-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #eab308; }
-    .dot-green { background: #22c55e; }
-
-    .terminal-title {
-      font-size: 11px;
-      color: #94a3b8;
-      letter-spacing: 0.05em;
-    }
-
-    .terminal-body {
-      padding: 18px 20px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #cbd5e1;
-      min-height: 110px;
-    }
-
-    .terminal-line {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .terminal-prompt { color: var(--accent); }
-    .terminal-tag {
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    .tag-pass { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
-    .tag-highlight { color: #facc15; }
-    .tag-blue { color: var(--accent); }
-
-    /* ─── BENTO METRICS ──────────────────────────────────── */
+    /* ─── ENGINEERING FOCUS BENTO STRIP ───────────────────── */
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -699,14 +641,14 @@
     .timeline-card {
       padding: 24px;
       display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 20px;
+      grid-template-columns: 56px 1fr;
+      gap: 22px;
     }
 
-    /* HIGH-DEFINITION VECTOR LOGO BADGES */
-    .brand-badge {
-      width: 52px;
-      height: 52px;
+    /* AUTHENTIC CORPORATE LOGO BADGES */
+    .corp-logo-box {
+      width: 56px;
+      height: 56px;
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -718,22 +660,21 @@
       transition: transform 0.25s var(--ease-spring);
     }
 
-    .timeline-card:hover .brand-badge {
-      transform: scale(1.08) rotate(-2deg);
+    .timeline-card:hover .corp-logo-box {
+      transform: scale(1.08) rotate(-1.5deg);
     }
 
-    .badge-meli     { background: #ffe600; }
-    .badge-avla     { background: #0050ff; }
-    .badge-techforb { background: #1a162b; border-color: #7c3aed; }
-    .badge-ubp      { background: #9b1b30; }
-    .badge-ifts     { background: #003366; }
+    /* Distinct authentic backgrounds for crisp contrast */
+    .box-meli     { background: #ffe600; padding: 4px; }
+    .box-avla     { background: #0050ff; padding: 8px; }
+    .box-techforb { background: #ffffff; padding: 8px; }
+    .box-ubp      { background: #ffffff; padding: 4px; }
+    .box-ifts     { background: #ffffff; padding: 4px; }
 
-    .brand-svg {
+    .corp-logo-box img {
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: contain;
     }
 
     .item-header {
@@ -830,6 +771,30 @@
     }
 
     /* ─── PROJECTS ────────────────────────────────────────── */
+    .projects-filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+      transition: all 0.15s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--primary);
+      background: var(--primary-subtle);
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -861,6 +826,11 @@
       background: var(--bg-surface);
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
+    }
+
+    .project-links-group {
+      display: flex;
+      gap: 8px;
     }
 
     .project-link-btn {
@@ -963,6 +933,185 @@
 
     .contact-icon { font-size: 18px; }
 
+    /* ─── MODAL CV VIEWER ─────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s var(--ease-smooth);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-dialog {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 820px;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+      transform: scale(0.96);
+      transition: transform 0.25s var(--ease-spring);
+    }
+
+    .modal-overlay.active .modal-dialog {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+
+    .modal-title {
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: all 0.15s;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+    }
+
+    .modal-body {
+      flex: 1;
+      background: #1e1e24;
+      overflow: hidden;
+    }
+
+    .modal-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ─── COMMAND PALETTE (CMD+K) ─────────────────────────── */
+    .cmd-palette-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 3000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 15vh;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .cmd-palette-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cmd-palette-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 560px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      transform: translateY(-10px);
+      transition: transform 0.2s var(--ease-spring);
+    }
+
+    .cmd-palette-overlay.active .cmd-palette-box {
+      transform: translateY(0);
+    }
+
+    .cmd-input-wrap {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cmd-input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+    }
+
+    .cmd-results {
+      max-height: 320px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .cmd-item {
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 13px;
+      transition: all 0.15s;
+    }
+
+    .cmd-item:hover, .cmd-item.selected {
+      background: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    .cmd-item-shortcut {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
     /* ─── TOAST NOTIFICATION ─────────────────────────────── */
     .toast {
       position: fixed;
@@ -1032,6 +1181,7 @@
     /* ─── RESPONSIVE BREAKPOINTS ─────────────────────────── */
     @media (max-width: 768px) {
       .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .cmd-k-badge { display: none; }
     }
 
     @media (max-width: 640px) {
@@ -1048,6 +1198,7 @@
       .container { padding: 0 18px; }
       .contact-row { flex-direction: column; }
       .contact-btn { width: 100%; justify-content: center; }
+      .modal-dialog { height: 95vh; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1072,7 +1223,6 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#engine"     data-i18n="nav.engine">Engine</a></li>
         <li><a href="#stack"      data-i18n="nav.stack">Stack</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
         <li><a href="#education"  data-i18n="nav.education">Educación</a></li>
@@ -1081,6 +1231,10 @@
       </ul>
 
       <div class="nav-controls">
+        <button class="cmd-k-badge" id="cmdTrigger" aria-label="Abrir buscador">
+          <span>⌘K</span>
+        </button>
+
         <div class="lang-switcher" role="group" aria-label="Idioma">
           <button class="lang-btn active" data-lang-btn="es">ES</button>
           <button class="lang-btn"        data-lang-btn="en">EN</button>
@@ -1123,9 +1277,9 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn-primary" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="hero.cta_cv">
-            📄 Descargar CV
-          </a>
+          <button class="btn-primary" id="openCvModalBtn" data-i18n="hero.cta_cv">
+            📄 Ver / Descargar CV
+          </button>
           <button class="btn-secondary" id="copyEmailBtn" data-email="pmatiasspergge@gmail.com">
             📋 Copiar Email
           </button>
@@ -1144,36 +1298,7 @@
     </div>
   </section>
 
-  <!-- ─── LIVE FRAUD ENGINE TERMINAL WIDGET ───────────────── -->
-  <div class="terminal-section reveal" id="engine">
-    <div class="terminal-card">
-      <div class="terminal-header">
-        <div class="terminal-dots">
-          <div class="terminal-dot dot-red"></div>
-          <div class="terminal-dot dot-yellow"></div>
-          <div class="terminal-dot dot-green"></div>
-        </div>
-        <span class="terminal-title">meli-fraud-detection-engine // fury-production-v2.6</span>
-        <span style="font-size:10px; color:#64748b;">LATENCY: 11ms</span>
-      </div>
-      <div class="terminal-body" id="terminalContent">
-        <div class="terminal-line">
-          <span class="terminal-prompt">$</span>
-          <span>fury-cli health --service=pf-vis-marketing-scoring</span>
-        </div>
-        <div class="terminal-line">
-          <span style="color:#22c55e;">[ONLINE]</span>
-          <span>Spring Boot 3.3.x on Fury Cluster · Latam Region: Active-Active</span>
-        </div>
-        <div class="terminal-line">
-          <span class="terminal-prompt">></span>
-          <span>Evaluated Tx #984210928 · <span class="tag-blue">Risk Score: 0.02</span> · Action: <span class="terminal-tag tag-pass">APPROVED</span> · Time: <span class="tag-highlight">8.4ms</span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── BENTO METRICS ──────────────────────────────────── -->
+  <!-- ─── BENTO ENGINEERING HIGHLIGHTS ───────────────────── -->
   <div class="bento-grid reveal">
     <div class="spotlight-card bento-item">
       <div class="card-content">
@@ -1268,13 +1393,8 @@
 
       <!-- Mercado Libre -->
       <div class="spotlight-card timeline-card reveal">
-        <div class="brand-badge badge-meli" title="Mercado Libre">
-          <!-- Official Handshake Logo SVG -->
-          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="50" cy="50" rx="42" ry="28" fill="#ffe600"/>
-            <path d="M28 46C28 46 36 34 50 48C64 34 72 46 72 46C72 46 64 62 50 56C36 62 28 46 28 46Z" fill="#2d3277"/>
-            <path d="M42 45L50 53L58 45" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="corp-logo-box box-meli">
+          <img src="assets/img/logos/meli.png" alt="Mercado Libre" loading="lazy" />
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -1310,10 +1430,8 @@
 
       <!-- AVLA -->
       <div class="spotlight-card timeline-card reveal">
-        <div class="brand-badge badge-avla" title="AVLA">
-          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="1">avla</text>
-          </svg>
+        <div class="corp-logo-box box-avla">
+          <img src="assets/img/logos/avla_clean.png" alt="AVLA" loading="lazy" />
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -1334,17 +1452,8 @@
 
       <!-- Techforb -->
       <div class="spotlight-card timeline-card reveal">
-        <div class="brand-badge badge-techforb" title="Techforb">
-          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 50L48 32C52 28 60 28 64 32C68 36 68 44 64 48L52 60L64 72C68 76 68 84 64 88C60 92 52 92 48 88L30 70C24 64 24 56 30 50Z" fill="url(#techforbGrad)"/>
-            <circle cx="74" cy="50" r="8" fill="#a855f7"/>
-            <defs>
-              <linearGradient id="techforbGrad" x1="25" y1="25" x2="75" y2="75" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#9333ea"/>
-                <stop offset="1" stop-color="#6366f1"/>
-              </linearGradient>
-            </defs>
-          </svg>
+        <div class="corp-logo-box box-techforb">
+          <img src="assets/img/logos/techforb_clean.png" alt="Techforb" loading="lazy" />
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -1373,11 +1482,8 @@
 
       <!-- UBP -->
       <div class="spotlight-card timeline-card reveal">
-        <div class="brand-badge badge-ubp" title="Universidad Blas Pascal">
-          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" rx="14" fill="#9b1b30"/>
-            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="800" font-size="26" fill="#ffffff" text-anchor="middle" letter-spacing="1">UBP</text>
-          </svg>
+        <div class="corp-logo-box box-ubp">
+          <img src="assets/img/logos/ubp_clean.png" alt="Universidad Blas Pascal" loading="lazy" />
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -1402,16 +1508,8 @@
 
       <!-- IFTS 29 -->
       <div class="spotlight-card timeline-card reveal">
-        <div class="brand-badge badge-ifts" title="IFTS N°29">
-          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100" height="100" rx="14" fill="#003366"/>
-            <rect x="18" y="18" width="28" height="28" fill="#0284c7" rx="4"/>
-            <rect x="54" y="18" width="28" height="28" fill="#16a34a" rx="4"/>
-            <rect x="18" y="54" width="28" height="28" fill="#16a34a" rx="4"/>
-            <rect x="54" y="54" width="28" height="28" fill="#0284c7" rx="4"/>
-            <circle cx="50" cy="50" r="16" fill="#eab308"/>
-            <text x="50" y="55" font-family="'JetBrains Mono', monospace" font-weight="800" font-size="14" fill="#000000" text-anchor="middle">29</text>
-          </svg>
+        <div class="corp-logo-box box-ifts">
+          <img src="assets/img/logos/ifts_clean.png" alt="IFTS N°29" loading="lazy" />
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -1437,16 +1535,25 @@
   <section id="projects">
     <p class="section-eyebrow" data-i18n="nav.projects">Proyectos Destacados</p>
 
+    <!-- Filter Buttons -->
+    <div class="projects-filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Todos (4)</button>
+      <button class="filter-btn" data-filter="prod">Producción</button>
+      <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+    </div>
+
     <div class="projects-grid">
 
       <!-- Fundación Patitas -->
-      <div class="spotlight-card project-card featured reveal">
+      <div class="spotlight-card project-card featured reveal" data-category="prod fullstack">
         <div class="card-content">
           <div class="project-header">
             <div class="project-icon">🐾</div>
-            <a class="project-link-btn" href="https://github.com/pmspergge" target="_blank" rel="noopener">
-              GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-            </a>
+            <div class="project-links-group">
+              <a class="project-link-btn" href="https://github.com/pmspergge" target="_blank" rel="noopener">
+                GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              </a>
+            </div>
           </div>
           <div class="project-name" data-i18n="proj.patitas.name">Fundación Patitas</div>
           <p class="project-desc" data-i18n="proj.patitas.desc">
@@ -1462,13 +1569,15 @@
       </div>
 
       <!-- SPA Administración -->
-      <div class="spotlight-card project-card reveal">
+      <div class="spotlight-card project-card reveal" data-category="prod">
         <div class="card-content">
           <div class="project-header">
             <div class="project-icon">🏢</div>
-            <a class="project-link-btn" href="https://administracionspa.com.ar" target="_blank" rel="noopener">
-              Live Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-            </a>
+            <div class="project-links-group">
+              <a class="project-link-btn" href="https://administracionspa.com.ar" target="_blank" rel="noopener">
+                Live Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              </a>
+            </div>
           </div>
           <div class="project-name" data-i18n="proj.spa.name">SPA Administración</div>
           <p class="project-desc" data-i18n="proj.spa.desc">
@@ -1483,13 +1592,15 @@
       </div>
 
       <!-- University Claims -->
-      <div class="spotlight-card project-card reveal">
+      <div class="spotlight-card project-card reveal" data-category="fullstack">
         <div class="card-content">
           <div class="project-header">
             <div class="project-icon">🎓</div>
-            <a class="project-link-btn" href="https://github.com/pmspergge/SitioWeb_Universidad_Reclamos_y_Quejas" target="_blank" rel="noopener">
-              GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-            </a>
+            <div class="project-links-group">
+              <a class="project-link-btn" href="https://github.com/pmspergge/SitioWeb_Universidad_Reclamos_y_Quejas" target="_blank" rel="noopener">
+                GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              </a>
+            </div>
           </div>
           <div class="project-name" data-i18n="proj.univ.name">University Claims Platform</div>
           <p class="project-desc" data-i18n="proj.univ.desc">
@@ -1505,13 +1616,15 @@
       </div>
 
       <!-- Argentina Programa -->
-      <div class="spotlight-card project-card reveal">
+      <div class="spotlight-card project-card reveal" data-category="fullstack">
         <div class="card-content">
           <div class="project-header">
             <div class="project-icon">🛒</div>
-            <a class="project-link-btn" href="https://frontendargprograma-e695a.web.app/" target="_blank" rel="noopener">
-              Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-            </a>
+            <div class="project-links-group">
+              <a class="project-link-btn" href="https://frontendargprograma-e695a.web.app/" target="_blank" rel="noopener">
+                Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              </a>
+            </div>
           </div>
           <div class="project-name" data-i18n="proj.arg.name">Argentina Programa Portfolio</div>
           <p class="project-desc" data-i18n="proj.arg.desc">
@@ -1578,9 +1691,9 @@
       <button class="contact-btn reveal" id="copyEmailBtn2" data-email="pmatiasspergge@gmail.com">
         <span class="contact-icon">✉️</span> pmatiasspergge@gmail.com
       </button>
-      <a class="contact-btn reveal" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="contact.cv">
-        <span class="contact-icon">📄</span> Descargar CV (PDF)
-      </a>
+      <button class="contact-btn reveal" id="openCvModalBtn2" data-i18n="contact.cv">
+        <span class="contact-icon">📄</span> Ver / Descargar CV
+      </button>
     </div>
   </section>
 
@@ -1596,6 +1709,63 @@
 
 </div>
 
+<!-- ─── MODAL CV VIEWER ─────────────────────────────────── -->
+<div class="modal-overlay" id="cvModal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <div class="modal-title">
+        <span>📄</span> PedroMatiasSperggeCV.pdf
+      </div>
+      <div class="modal-actions">
+        <a class="btn-primary" style="padding: 6px 14px; font-size: 12px;" href="assets/cv/PedroMatiasSperggeCV.pdf" download="PedroMatiasSperggeCV.pdf">
+          ⬇ Descargar PDF
+        </a>
+        <button class="modal-close-btn" id="closeCvModalBtn" aria-label="Cerrar modal">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <iframe src="assets/cv/PedroMatiasSperggeCV.pdf" class="modal-iframe" title="CV Viewer"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ─── COMMAND PALETTE (CMD+K) ─────────────────────────── -->
+<div class="cmd-palette-overlay" id="cmdPalette">
+  <div class="cmd-palette-box">
+    <div class="cmd-input-wrap">
+      <span style="color: var(--text-muted);">🔍</span>
+      <input type="text" class="cmd-input" id="cmdInput" placeholder="Escribe un comando o navega..." autocomplete="off" />
+      <span class="cmd-item-shortcut">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmdResults">
+      <div class="cmd-item" data-action="nav" data-target="#experience">
+        <span>💼 Ir a Experiencia</span>
+        <span class="cmd-item-shortcut">#experience</span>
+      </div>
+      <div class="cmd-item" data-action="nav" data-target="#projects">
+        <span>🚀 Ir a Proyectos</span>
+        <span class="cmd-item-shortcut">#projects</span>
+      </div>
+      <div class="cmd-item" data-action="nav" data-target="#stack">
+        <span>⚡ Ir a Stack Tecnológico</span>
+        <span class="cmd-item-shortcut">#stack</span>
+      </div>
+      <div class="cmd-item" data-action="cv">
+        <span>📄 Ver / Descargar CV</span>
+        <span class="cmd-item-shortcut">PDF</span>
+      </div>
+      <div class="cmd-item" data-action="email">
+        <span>✉️ Copiar Email</span>
+        <span class="cmd-item-shortcut">Copy</span>
+      </div>
+      <div class="cmd-item" data-action="theme">
+        <span>🌓 Cambiar Tema (Dark / Light)</span>
+        <span class="cmd-item-shortcut">Toggle</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ─── TOAST NOTIFICATION ──────────────────────────────── -->
 <div class="toast" id="toast">¡Copiado al portapapeles!</div>
 
@@ -1604,7 +1774,6 @@
   /* ── i18n Dictionary ───────────────────────────────────── */
   const STRINGS = {
     es: {
-      "nav.engine":        "Engine",
       "nav.stack":         "Stack",
       "nav.experience":    "Experiencia",
       "nav.education":     "Educación",
@@ -1614,7 +1783,7 @@
       "hero.badge":        "Disponible para proyectos & mentoría",
       "hero.role":         "Fraud Prevention @ Mercado Libre",
       "hero.bio":          "Ingeniero backend enfocado en detección y mitigación de fraude en tiempo real para el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.",
-      "hero.cta_cv":       "📄 Descargar CV",
+      "hero.cta_cv":       "📄 Ver / Descargar CV",
       "bento.meli.title":  "Mercado Libre",
       "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
       "bento.tech.title":  "High Scale Backend",
@@ -1655,10 +1824,9 @@
       "about.focus.value": "Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva e inteligencia artificial.",
       "about.lang.label":  "Idiomas",
       "about.lang.value":  "Español (nativo) · Inglés (profesional)",
-      "contact.cv":        "📄 Descargar CV (PDF)"
+      "contact.cv":        "📄 Ver / Descargar CV"
     },
     en: {
-      "nav.engine":        "Engine",
       "nav.stack":         "Stack",
       "nav.experience":    "Experience",
       "nav.education":     "Education",
@@ -1668,7 +1836,7 @@
       "hero.badge":        "Available for projects & mentoring",
       "hero.role":         "Fraud Prevention @ Mercado Libre",
       "hero.bio":          "Backend engineer specialized in real-time fraud detection and mitigation for Latin America's largest e-commerce and fintech ecosystem. Building highly available, distributed architectures with Java/Spring on Mercado Libre's Fury platform.",
-      "hero.cta_cv":       "📄 Download CV",
+      "hero.cta_cv":       "📄 View / Download CV",
       "bento.meli.title":  "Mercado Libre",
       "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
       "bento.tech.title":  "High Scale Backend",
@@ -1709,10 +1877,9 @@
       "about.focus.value": "Backend engineering, high-throughput distributed systems, large-scale fraud prevention, and artificial intelligence.",
       "about.lang.label":  "Languages",
       "about.lang.value":  "Spanish (native) · English (professional)",
-      "contact.cv":        "📄 Download CV (PDF)"
+      "contact.cv":        "📄 View / Download CV"
     },
     pt: {
-      "nav.engine":        "Engine",
       "nav.stack":         "Stack",
       "nav.experience":    "Experiência",
       "nav.education":     "Educação",
@@ -1722,7 +1889,7 @@
       "hero.badge":        "Disponível para projetos & mentoria",
       "hero.role":         "Prevenção de Fraude @ Mercado Libre",
       "hero.bio":          "Engenheiro backend focado em detecção e mitigação de fraude em tempo real no maior ecossistema de e-commerce e fintech da América Latina. Construo arquiteturas distribuídas de alta disponibilidade com Java/Spring na plataforma Fury do Mercado Libre.",
-      "hero.cta_cv":       "📄 Baixar CV",
+      "hero.cta_cv":       "📄 Ver / Baixar CV",
       "bento.meli.title":  "Mercado Libre",
       "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
       "bento.tech.title":  "High Scale Backend",
@@ -1763,7 +1930,7 @@
       "about.focus.value": "Engenharia backend, sistemas distribuídos de alta escala, prevenção de fraude e inteligência artificial.",
       "about.lang.label":  "Idiomas",
       "about.lang.value":  "Espanhol (nativo) · Inglês (profissional)",
-      "contact.cv":        "📄 Baixar CV (PDF)"
+      "contact.cv":        "📄 Ver / Baixar CV"
     }
   };
 
@@ -1799,6 +1966,105 @@
   }
   setupCopy('copyEmailBtn');
   setupCopy('copyEmailBtn2');
+
+  /* ── Modal CV Viewer ───────────────────────────────────── */
+  const cvModal = document.getElementById('cvModal');
+  const openCvBtns = [document.getElementById('openCvModalBtn'), document.getElementById('openCvModalBtn2')];
+  const closeCvBtn = document.getElementById('closeCvModalBtn');
+
+  openCvBtns.forEach(btn => {
+    if (btn) btn.addEventListener('click', () => cvModal.classList.add('active'));
+  });
+
+  if (closeCvBtn) {
+    closeCvBtn.addEventListener('click', () => cvModal.classList.remove('active'));
+  }
+
+  cvModal.addEventListener('click', (e) => {
+    if (e.target === cvModal) cvModal.classList.remove('active');
+  });
+
+  /* ── Projects Filter ───────────────────────────────────── */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        if (filter === 'all') {
+          card.style.display = 'flex';
+        } else {
+          const cats = card.getAttribute('data-category') || '';
+          card.style.display = cats.includes(filter) ? 'flex' : 'none';
+        }
+      });
+    });
+  });
+
+  /* ── Command Palette (⌘K) ──────────────────────────────── */
+  const cmdPalette = document.getElementById('cmdPalette');
+  const cmdTrigger = document.getElementById('cmdTrigger');
+  const cmdInput = document.getElementById('cmdInput');
+  const cmdItems = document.querySelectorAll('.cmd-item');
+
+  function openCmd() {
+    cmdPalette.classList.add('active');
+    cmdInput.value = '';
+    cmdInput.focus();
+    filterCmd('');
+  }
+
+  function closeCmd() {
+    cmdPalette.classList.remove('active');
+  }
+
+  if (cmdTrigger) cmdTrigger.addEventListener('click', openCmd);
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      cmdPalette.classList.contains('active') ? closeCmd() : openCmd();
+    }
+    if (e.key === 'Escape') {
+      closeCmd();
+      cvModal.classList.remove('active');
+    }
+  });
+
+  cmdPalette.addEventListener('click', (e) => {
+    if (e.target === cmdPalette) closeCmd();
+  });
+
+  function filterCmd(query) {
+    const q = query.toLowerCase();
+    cmdItems.forEach(item => {
+      const txt = item.textContent.toLowerCase();
+      item.style.display = txt.includes(q) ? 'flex' : 'none';
+    });
+  }
+
+  cmdInput.addEventListener('input', (e) => filterCmd(e.target.value));
+
+  cmdItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const action = item.getAttribute('data-action');
+      closeCmd();
+      if (action === 'nav') {
+        const target = document.querySelector(item.getAttribute('data-target'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      } else if (action === 'cv') {
+        cvModal.classList.add('active');
+      } else if (action === 'email') {
+        navigator.clipboard.writeText('pmatiasspergge@gmail.com').then(() => showToast('✉️ ¡Email copiado!'));
+      } else if (action === 'theme') {
+        applyTheme(!isDark);
+      }
+    });
+  });
 
   /* ── Live Clock (Buenos Aires UTC-3) ───────────────────── */
   function updateClock() {
