@@ -3,390 +3,520 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Matias Spergge — Ssr. Software Engineer especializado en Fraud Prevention en MercadoLibre." />
-  <title>Matias Spergge — Software Engineer</title>
+  <meta name="description" content="Matias Spergge — Ssr. Software Engineer en Mercado Libre (Prevención de Fraude). Estudiante de Licenciatura en Inteligencia Artificial." />
+  <meta name="keywords" content="Matias Spergge, Software Engineer, Backend, Mercado Libre, Fraud Prevention, Java, Spring Boot, Fury, Artificial Intelligence, Argentina" />
+  <meta name="author" content="Matias Spergge" />
 
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matisperggedev.web.app/" />
+  <meta property="og:title" content="Matias Spergge — Ssr. Software Engineer @ Mercado Libre" />
+  <meta property="og:description" content="Ssr. Software Engineer especializado en Prevención de Fraude en Mercado Libre y estudiante de Lic. en Inteligencia Artificial." />
+  <meta property="og:image" content="https://matisperggedev.web.app/assets/img/foto.jpg" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Matias Spergge — Ssr. Software Engineer @ Mercado Libre" />
+  <meta name="twitter:description" content="Ssr. Software Engineer especializado en Prevención de Fraude en Mercado Libre y estudiante de Lic. en Inteligencia Artificial." />
+  <meta name="twitter:image" content="https://matisperggedev.web.app/assets/img/foto.jpg" />
+
+  <title>Matias Spergge — Ssr. Software Engineer @ Mercado Libre</title>
+
+  <!-- SVG Favicon with High-Res Emoji / Initial -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2309090b%22/><text y=%2266%22 x=%2250%22 font-size=%2254%22 font-family=%22system-ui,sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%237c9cff%22>M</text></svg>" />
+  <link rel="apple-touch-icon" href="assets/img/foto.jpg" />
+
+  <!-- Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── TOKENS ─────────────────────────────────────────── */
+    /* ─── DESIGN SYSTEM TOKENS ───────────────────────────── */
     :root {
-      --accent:        #7c9cff;
-      --accent-dim:    #3a4a7a;
-      --accent-glow:   rgba(124,156,255,0.10);
-      --accent-glow2:  rgba(124,156,255,0.18);
+      --accent:         #7c9cff;
+      --accent-hover:   #9ab4ff;
+      --accent-dim:     rgba(124, 156, 255, 0.25);
+      --accent-glow:    rgba(124, 156, 255, 0.08);
+      --accent-glow-strong: rgba(124, 156, 255, 0.16);
+      
+      --emerald:        #10b981;
+      --emerald-glow:   rgba(16, 185, 129, 0.12);
 
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 14px;
-      --radius-xl: 24px;
+      --radius-sm:      6px;
+      --radius-md:      10px;
+      --radius-lg:      16px;
+      --radius-xl:      24px;
+      --radius-full:    9999px;
 
-      --font-sans: 'Inter', system-ui, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono:      'JetBrains Mono', monospace;
 
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth:    cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ─── DARK THEME ──────────────────────────────────────── */
+    /* ─── DARK THEME (Default / Linear-Style) ────────────── */
     [data-theme="dark"] {
-      --bg:            #09090b;
-      --bg-card:       #121214;
-      --bg-subtle:     #1a1a1f;
-      --bg-hover:      #222229;
-      --border:        rgba(255,255,255,0.08);
-      --border-strong: rgba(255,255,255,0.15);
-      --text-primary:  #ededf0;
-      --text-secondary:#a1a1aa;
-      --text-muted:    #52525b;
-      --text-on-accent:#09090b;
-      --shadow-card:   0 0 0 1px rgba(255,255,255,0.03), 0 8px 32px rgba(0,0,0,0.5);
-      --glow-hero:     radial-gradient(ellipse 50% 40% at 50% -20%, rgba(124,156,255,0.06) 0%, transparent 70%);
+      --bg:             #09090b;
+      --bg-surface:     #111114;
+      --bg-card:        #141418;
+      --bg-card-hover:  #1a1a20;
+      --bg-subtle:      #1c1c22;
+      --bg-glass:       rgba(9, 9, 11, 0.75);
+
+      --border:         rgba(255, 255, 255, 0.07);
+      --border-strong:  rgba(255, 255, 255, 0.14);
+      --border-accent:  rgba(124, 156, 255, 0.3);
+
+      --text-primary:   #f4f4f6;
+      --text-secondary: #a1a1aa;
+      --text-muted:     #71717a;
+      --text-inverse:   #09090b;
+
+      --card-shadow:    0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      --glow-mesh:      radial-gradient(circle 500px at 50% -100px, rgba(124, 156, 255, 0.08), transparent 70%);
+      --grid-pattern:   radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
     }
 
-    /* ─── LIGHT THEME ─────────────────────────────────────── */
+    /* ─── LIGHT THEME ────────────────────────────────────── */
     [data-theme="light"] {
-      --bg:            #fafafa;
-      --bg-card:       #ffffff;
-      --bg-subtle:     #f4f4f5;
-      --bg-hover:      #e4e4e7;
-      --border:        rgba(0,0,0,0.08);
-      --border-strong: rgba(0,0,0,0.15);
-      --text-primary:  #18181b;
-      --text-secondary:#52525b;
-      --text-muted:    #a1a1aa;
-      --text-on-accent:#ffffff;
-      --shadow-card:   0 0 0 1px rgba(0,0,0,0.03), 0 8px 30px rgba(0,0,0,0.06);
-      --glow-hero:     radial-gradient(ellipse 50% 40% at 50% -20%, rgba(74,114,240,0.08) 0%, transparent 70%);
-      --accent:        #3b68ff;
-      --accent-dim:    #b8c8f8;
-      --accent-glow:   rgba(59,104,255,0.10);
-      --accent-glow2:  rgba(59,104,255,0.18);
+      --bg:             #fbfbfc;
+      --bg-surface:     #f4f4f6;
+      --bg-card:        #ffffff;
+      --bg-card-hover:  #fafafc;
+      --bg-subtle:      #ebecef;
+      --bg-glass:       rgba(251, 251, 252, 0.85);
+
+      --border:         rgba(0, 0, 0, 0.08);
+      --border-strong:  rgba(0, 0, 0, 0.16);
+      --border-accent:  rgba(59, 104, 255, 0.35);
+
+      --text-primary:   #09090b;
+      --text-secondary: #52525b;
+      --text-muted:     #8e8e93;
+      --text-inverse:   #ffffff;
+
+      --card-shadow:    0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.06);
+      --glow-mesh:      radial-gradient(circle 500px at 50% -100px, rgba(59, 104, 255, 0.08), transparent 70%);
+      --grid-pattern:   radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+      
+      --accent:         #3b68ff;
+      --accent-hover:   #2552f5;
+      --accent-dim:     rgba(59, 104, 255, 0.2);
+      --accent-glow:    rgba(59, 104, 255, 0.08);
     }
 
-    /* ─── RESET ───────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    /* ─── GLOBAL RESET & BASE ────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
 
     body {
       font-family: var(--font-sans);
-      background: var(--bg);
+      background-color: var(--bg);
       color: var(--text-primary);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      background-image: var(--glow-mesh);
+      background-repeat: no-repeat;
+      transition: background-color 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth);
     }
 
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    button { cursor: pointer; border: none; background: none; font-family: inherit; }
-    img { display: block; max-width: 100%; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* ─── LAYOUT ──────────────────────────────────────────── */
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .container {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 24px;
     }
 
-    /* ─── NAV ─────────────────────────────────────────────── */
+    /* ─── NAVBAR ─────────────────────────────────────────── */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      background: var(--bg-glass);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      transition: background 0.3s ease;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      transition: border-color 0.2s, background-color 0.2s;
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 60px;
+      height: 64px;
       gap: 16px;
     }
 
-    .nav-logo {
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 600;
       letter-spacing: -0.02em;
-      white-space: nowrap;
     }
-    .nav-logo span { color: var(--text-muted); }
 
-    .nav-links { display: flex; gap: 4px; }
+    .nav-brand-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .nav-brand span {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
 
     .nav-links a {
       font-size: 13px;
       font-weight: 500;
       color: var(--text-secondary);
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: var(--radius-sm);
-      transition: color 0.15s, background 0.15s;
-    }
-    .nav-links a:hover {
-      color: var(--text-primary);
-      background: var(--bg-hover);
+      transition: color 0.15s, background-color 0.15s;
     }
 
-    .nav-controls { display: flex; align-items: center; gap: 10px; }
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background-color: var(--bg-card);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
     .lang-switcher {
       display: flex;
-      gap: 2px;
       background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 4px;
+      border-radius: var(--radius-md);
+      padding: 3px;
+      gap: 2px;
     }
 
     .lang-btn {
       font-size: 11px;
       font-weight: 600;
       color: var(--text-secondary);
-      padding: 4px 10px;
-      border-radius: 4px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
       transition: all 0.15s;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .lang-btn.active { background: var(--bg-card); color: var(--text-primary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid var(--border); }
-    .lang-btn:not(.active):hover { color: var(--text-primary); }
+
+    .lang-btn.active {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border-strong);
+    }
+
+    .lang-btn:not(.active):hover {
+      color: var(--text-primary);
+    }
 
     .theme-toggle {
-      width: 34px; height: 34px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: var(--radius-sm);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
       border: 1px solid var(--border);
       background: var(--bg-subtle);
       color: var(--text-secondary);
-      transition: all 0.15s;
       font-size: 15px;
+      transition: all 0.15s;
     }
-    .theme-toggle:hover { color: var(--text-primary); border-color: var(--border-strong); background: var(--bg-hover); }
 
-    /* ─── HERO ────────────────────────────────────────────── */
+    .theme-toggle:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background: var(--bg-card);
+      transform: scale(1.04);
+    }
+
+    /* ─── HERO SECTION ───────────────────────────────────── */
     .hero {
-      padding: 80px 0 60px;
-      border-bottom: 1px solid var(--border);
+      padding: 72px 0 54px;
       position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--glow-hero);
-      pointer-events: none;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--accent-glow);
-      border: 1px solid var(--accent-glow2);
-      border-radius: var(--radius-xl);
+      background: var(--emerald-glow);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: var(--radius-full);
       padding: 6px 14px 6px 10px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 32px;
+      color: var(--emerald);
+      margin-bottom: 28px;
       font-family: var(--font-mono);
-      animation: fadeSlideUp 0.6s var(--ease-out) both;
+      animation: fadeSlideUp 0.5s var(--ease-out) both;
     }
 
     .badge-dot {
-      width: 6px; height: 6px;
-      background: var(--accent);
+      width: 7px;
+      height: 7px;
+      background: var(--emerald);
       border-radius: 50%;
       flex-shrink: 0;
-      animation: blink 2.5s ease-in-out infinite;
+      animation: pulse 2s infinite;
     }
 
-    @keyframes blink {
-      0%,100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(124,156,255,0.4); }
-      50%     { opacity: 0.4; transform: scale(0.85); box-shadow: 0 0 0 3px transparent; }
+    @keyframes pulse {
+      0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+      70%  { transform: scale(1);    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
     .hero-layout {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 60px;
+      gap: 48px;
       align-items: center;
     }
 
     .hero-name {
-      font-size: clamp(40px, 6vw, 56px);
-      font-weight: 600;
+      font-size: clamp(38px, 5.5vw, 54px);
+      font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.04em;
       color: var(--text-primary);
-      margin-bottom: 16px;
-      animation: fadeSlideUp 0.6s 0.05s var(--ease-out) both;
+      margin-bottom: 14px;
+      animation: fadeSlideUp 0.55s 0.05s var(--ease-out) both;
     }
 
     .hero-role {
-      font-size: 16px;
+      font-size: 17px;
       color: var(--text-secondary);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       line-height: 1.5;
       font-family: var(--font-mono);
-      animation: fadeSlideUp 0.6s 0.1s var(--ease-out) both;
+      animation: fadeSlideUp 0.55s 0.1s var(--ease-out) both;
     }
-    .hero-role strong { color: var(--text-primary); font-weight: 500; }
+
+    .hero-role strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     .hero-bio {
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.7;
-      max-width: 520px;
-      margin-bottom: 36px;
-      animation: fadeSlideUp 0.6s 0.15s var(--ease-out) both;
+      max-width: 540px;
+      margin-bottom: 32px;
+      animation: fadeSlideUp 0.55s 0.15s var(--ease-out) both;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 48px;
-      animation: fadeSlideUp 0.6s 0.2s var(--ease-out) both;
+      animation: fadeSlideUp 0.55s 0.2s var(--ease-out) both;
     }
 
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: var(--text-primary);
-      color: var(--bg);
-      font-size: 13px; font-weight: 500;
-      padding: 10px 24px;
+      color: var(--text-inverse);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 22px;
       border-radius: var(--radius-sm);
-      transition: transform 0.2s var(--ease-spring), opacity 0.2s;
+      transition: transform 0.2s var(--ease-spring), opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
+
     .btn-primary:hover {
       transform: translateY(-2px);
-      opacity: 0.9;
+      opacity: 0.94;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
 
     .btn-secondary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 13px; font-weight: 500;
-      border: 1px solid var(--border-strong);
-      padding: 10px 24px;
-      border-radius: var(--radius-sm);
-      transition: all 0.2s;
-    }
-    .btn-secondary:hover {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
       color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--border-strong);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s var(--ease-smooth);
+    }
+
+    .btn-secondary:hover {
       background: var(--bg-subtle);
+      border-color: var(--accent);
+      color: var(--accent);
       transform: translateY(-2px);
     }
 
-    /* photo */
-    .hero-photo-wrap {
+    /* Hero Avatar */
+    .hero-avatar-container {
+      position: relative;
       flex-shrink: 0;
       animation: fadeIn 0.8s 0.1s var(--ease-out) both;
-      position: relative;
     }
-    .hero-photo-wrap::after {
-      content: '';
+
+    .hero-avatar-glow {
       position: absolute;
-      inset: -10px;
-      border: 1px dashed var(--border-strong);
+      inset: -12px;
       border-radius: 50%;
-      animation: spin 20s linear infinite;
+      background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 70%);
+      filter: blur(8px);
+      z-index: 0;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .hero-avatar-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px dashed var(--border-strong);
+      animation: rotateRing 30s linear infinite;
+    }
 
-    .hero-photo {
+    @keyframes rotateRing {
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-avatar {
       position: relative;
       z-index: 1;
-      width: 180px; height: 180px;
+      width: 176px;
+      height: 176px;
       border-radius: 50%;
       object-fit: cover;
-      object-position: center 30%;
-      border: 1px solid var(--border-strong);
-      background: var(--bg-subtle);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      object-position: center 25%;
+      border: 2px solid var(--border-strong);
+      background: var(--bg-card);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
     }
 
-    /* ─── SKILLS STRIP ────────────────────────────────────── */
-    .skills-strip {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
+    /* ─── BENTO HIGHLIGHTS ────────────────────────────────── */
+    .bento-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .strip-label {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-right: 8px;
-      white-space: nowrap;
-    }
-
-    .chip {
-      font-size: 12px;
-      font-family: var(--font-mono);
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      background: var(--bg-subtle);
-      white-space: nowrap;
-      transition: all 0.2s;
-    }
-    .chip:hover {
-      border-color: var(--accent-dim);
-      color: var(--text-primary);
-      background: var(--bg-hover);
-    }
-    .chip.hi {
-      border-color: var(--accent-dim);
-      color: var(--accent);
-      background: var(--accent-glow);
-    }
-
-    /* ─── SECTIONS ────────────────────────────────────────── */
-    section {
-      padding: 64px 0;
+      padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
     }
-    section:last-of-type { border-bottom: none; }
+
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: all 0.2s var(--ease-smooth);
+    }
+
+    .bento-card:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .bento-icon {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    .bento-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .bento-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      line-height: 1.4;
+    }
+
+    /* ─── SECTIONS & HEADINGS ────────────────────────────── */
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
 
     .section-eyebrow {
-      font-size: 11px;
+      font-size: 12px;
       font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--text-muted);
-      margin-bottom: 40px;
-      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
+
     .section-eyebrow::after {
       content: '';
       flex: 1;
@@ -397,96 +527,234 @@
     /* ─── SCROLL REVEAL ───────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(15px);
-      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+      transform: translateY(14px);
+      transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ─── EXPERIENCE & EDUCATION COMMON ───────────────────── */
-    .list-wrapper { display: flex; flex-direction: column; gap: 16px; }
+    /* ─── TECH STACK ──────────────────────────────────────── */
+    .stack-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-    .list-item {
+    .stack-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stack-category-label {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    .stack-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .chip {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+      background: var(--bg-subtle);
+      transform: translateY(-1px);
+    }
+
+    .chip.highlight {
+      border-color: var(--border-accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+      font-weight: 500;
+    }
+
+    /* ─── EXPERIENCE & EDUCATION COMMON ───────────────────── */
+    .list-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .list-card {
       display: grid;
       grid-template-columns: 56px 1fr;
-      gap: 24px;
+      gap: 22px;
       padding: 24px;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+      transition: all 0.2s var(--ease-smooth);
+      box-shadow: var(--card-shadow);
     }
-    .list-item:hover { 
-      background: var(--bg-subtle); 
-      box-shadow: var(--shadow-card);
-      border-color: var(--border-strong);
-    }
-    .list-item.dim { opacity: 0.7; }
-    .list-item.dim:hover { opacity: 1; }
 
-    /* CONTENEDORES DE LOGOS ESTANDARIZADOS */
-    .logo-box {
-      width: 56px; height: 56px;
-      flex-shrink: 0;
-      background: #ffffff; /* Fondo blanco uniforme para que todos los logos destaquen */
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      padding: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s var(--ease-spring);
+    .list-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
     }
-    .list-item:hover .logo-box { transform: scale(1.05) rotate(-2deg); }
-    
+
+    .list-card.dim {
+      opacity: 0.85;
+    }
+
+    .list-card.dim:hover {
+      opacity: 1;
+    }
+
+    /* Standardized Logo Box */
+    .logo-box {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s var(--ease-spring);
+    }
+
+    .list-card:hover .logo-box {
+      transform: scale(1.06) rotate(-1.5deg);
+    }
+
     .logo-box img {
-      width: 100%; height: 100%;
-      object-fit: contain; /* Garantiza que ningún logo se corte o estire */
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .item-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: baseline;
       gap: 12px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       flex-wrap: wrap;
     }
 
-    .item-title { font-size: 16px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.01em; }
-    .item-date  { font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); white-space: nowrap; margin-top: 4px; }
-    
-    .item-role-container { margin-bottom: 12px; }
-    .item-role  { font-size: 14px; color: var(--text-secondary); font-weight: 500; }
-    .item-subdate { font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); margin-top: 2px;}
+    .item-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .item-date {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .role-block {
+      margin-top: 10px;
+    }
+
+    .role-block + .role-block {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .item-role {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .item-subdate {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
 
     .tag {
       font-size: 11px;
       font-family: var(--font-mono);
-      padding: 4px 8px;
-      border-radius: 4px;
-      background: var(--bg);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
       color: var(--text-secondary);
       border: 1px solid var(--border);
     }
+
     .tag.accent {
       background: var(--accent-glow);
       color: var(--accent);
       border-color: var(--accent-dim);
+      font-weight: 500;
     }
 
     .edu-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-family: var(--font-mono); font-weight: 500;
-      padding: 2px 10px; border-radius: 20px;
-      margin-left: 10px; vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
     }
-    .edu-badge.current { background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
-    .edu-badge.done { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
-    .edu-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: blink 2s ease-in-out infinite; }
+
+    .edu-badge.current {
+      background: rgba(16, 185, 129, 0.12);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .edu-badge.done {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .edu-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 2s infinite;
+    }
 
     /* ─── PROJECTS ────────────────────────────────────────── */
     .projects-grid {
@@ -499,30 +767,92 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 28px;
-      display: flex; flex-direction: column; gap: 12px;
-      transition: transform 0.25s var(--ease-spring), box-shadow 0.25s, border-color 0.25s;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.25s var(--ease-smooth);
+      box-shadow: var(--card-shadow);
+      position: relative;
     }
+
     .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-strong);
       border-color: var(--border-strong);
+      background: var(--bg-card-hover);
     }
+
     .project-card.featured {
       border-color: var(--accent-dim);
       background: linear-gradient(180deg, var(--accent-glow) 0%, transparent 100%), var(--bg-card);
     }
-    
-    .project-header { display: flex; justify-content: space-between; align-items: flex-start; }
-    .project-emoji { font-size: 24px; line-height: 1; padding: 10px; background: var(--bg-subtle); border-radius: 10px; border: 1px solid var(--border); }
-    .project-link { font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
-    .project-link:hover { color: var(--text-primary); }
-    .project-link svg { width: 14px; height: 14px; }
 
-    .project-name  { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-top: 8px;}
-    .project-desc  { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
 
-    /* ─── ABOUT GRID ──────────────────────────────────────── */
+    .project-icon-box {
+      font-size: 24px;
+      line-height: 1;
+      padding: 8px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+
+    .project-links-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .project-link-btn {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+      transition: all 0.15s;
+    }
+
+    .project-link-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent-dim);
+      background: var(--accent-glow);
+    }
+
+    .project-link-btn svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.15s;
+    }
+
+    .project-link-btn:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 4px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    /* ─── ABOUT BENTO ─────────────────────────────────────── */
     .about-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -533,10 +863,15 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 24px;
-      transition: border-color 0.2s;
+      padding: 22px;
+      transition: all 0.2s var(--ease-smooth);
+      box-shadow: var(--card-shadow);
     }
-    .about-card:hover { border-color: var(--border-strong); }
+
+    .about-card:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-card-hover);
+    }
 
     .about-card-label {
       font-size: 11px;
@@ -544,36 +879,51 @@
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
+
     .about-card-value {
       font-size: 14px;
       color: var(--text-primary);
       line-height: 1.6;
     }
 
-    /* ─── CONTACT ─────────────────────────────────────────── */
-    .contact-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    /* ─── CONTACT SECTION ─────────────────────────────────── */
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     .contact-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 14px; font-weight: 500;
-      padding: 12px 24px;
-      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--border-strong);
       color: var(--text-primary);
       background: var(--bg-card);
-      transition: all 0.2s var(--ease-out);
+      transition: all 0.2s var(--ease-smooth);
+      box-shadow: var(--card-shadow);
     }
+
     .contact-btn:hover {
-      border-color: var(--text-primary);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--bg-card-hover);
       transform: translateY(-2px);
     }
-    .contact-icon { font-size: 18px; opacity: 0.8; }
+
+    .contact-icon {
+      font-size: 18px;
+    }
 
     /* ─── FOOTER ──────────────────────────────────────────── */
     footer {
-      padding: 40px 0;
+      padding: 48px 0 36px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -588,50 +938,85 @@
       color: var(--text-muted);
     }
 
-    .footer-links { display: flex; gap: 20px; }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
     .footer-links a {
       font-size: 13px;
       color: var(--text-secondary);
       transition: color 0.15s;
     }
-    .footer-links a:hover { color: var(--text-primary); }
 
-    /* ─── ANIMATIONS ──────────────────────────────────────── */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .footer-links a:hover {
+      color: var(--accent);
     }
+
+    /* ─── KEYFRAME ANIMATIONS ─────────────────────────────── */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
 
-    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    /* ─── RESPONSIVE BREAKPOINTS ─────────────────────────── */
+    @media (max-width: 768px) {
+      .bento-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 640px) {
-      .nav-links          { display: none; }
-      .hero-layout        { grid-template-columns: 1fr; gap: 32px; }
-      .hero-photo-wrap    { order: -1; justify-self: center; }
-      .hero-photo         { width: 140px; height: 140px; }
-      .projects-grid      { grid-template-columns: 1fr; }
-      .about-grid         { grid-template-columns: 1fr; }
-      .hero-name          { font-size: 40px; }
-      .hero              { padding: 48px 0 40px; }
-      .container          { padding: 0 20px; }
-      .list-item          { grid-template-columns: 1fr; gap: 16px; }
-      .logo-box           { width: 48px; height: 48px; }
+      .nav-links { display: none; }
+      .hero { padding: 48px 0 36px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 32px; text-align: left; }
+      .hero-avatar-container { order: -1; align-self: flex-start; }
+      .hero-avatar { width: 120px; height: 120px; }
+      .bento-strip { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .list-card { grid-template-columns: 1fr; gap: 16px; }
+      .logo-box { width: 48px; height: 48px; }
+      .stack-category-label { width: 100%; margin-bottom: -4px; }
+      .container { padding: 0 18px; }
+      .contact-row { flex-direction: column; }
+      .contact-btn { width: 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- ─── NAV ──────────────────────────────────────────────── -->
+<!-- ─── NAVBAR ───────────────────────────────────────────── -->
 <nav>
   <div class="container">
     <div class="nav-inner">
-      <span class="nav-logo">m<span>spergge</span>.dev</span>
+      <a href="#hero" class="nav-brand" aria-label="Inicio">
+        <div class="nav-brand-dot"></div>
+        mspergge<span>.dev</span>
+      </a>
 
       <ul class="nav-links">
+        <li><a href="#stack"      data-i18n="nav.stack">Stack</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
         <li><a href="#education"  data-i18n="nav.education">Educación</a></li>
         <li><a href="#projects"   data-i18n="nav.projects">Proyectos</a></li>
@@ -639,10 +1024,10 @@
       </ul>
 
       <div class="nav-controls">
-        <div class="lang-switcher" role="group" aria-label="Idioma">
-          <button class="lang-btn active" data-lang-btn="es">ES</button>
-          <button class="lang-btn"        data-lang-btn="en">EN</button>
-          <button class="lang-btn"        data-lang-btn="pt">PT</button>
+        <div class="lang-switcher" role="group" aria-label="Seleccionar idioma">
+          <button class="lang-btn active" data-lang-btn="es" aria-label="Español">ES</button>
+          <button class="lang-btn"        data-lang-btn="en" aria-label="English">EN</button>
+          <button class="lang-btn"        data-lang-btn="pt" aria-label="Português">PT</button>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
       </div>
@@ -650,12 +1035,14 @@
   </div>
 </nav>
 
-<!-- ─── HERO ─────────────────────────────────────────────── -->
+<!-- ─── MAIN CONTENT ─────────────────────────────────────── -->
 <div class="container">
+
+  <!-- ─── HERO ───────────────────────────────────────────── -->
   <section class="hero" id="hero">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      <span data-i18n="hero.badge">Disponible para side projects</span>
+      <span data-i18n="hero.badge">Disponible para proyectos & mentoría</span>
     </div>
 
     <div class="hero-layout">
@@ -664,87 +1051,157 @@
         
         <p class="hero-role">
           Ssr. Software Engineer &nbsp;·&nbsp;
-          <strong data-i18n="hero.role">Fraud Prevention @ MercadoLibre</strong>
+          <strong data-i18n="hero.role">Fraud Prevention @ Mercado Libre</strong>
         </p>
 
         <p class="hero-bio" data-i18n="hero.bio">
-          Ingeniero backend enfocado en detección y prevención de fraude en el ecosistema de e-commerce
-          más grande de Latinoamérica. Construyo sistemas escalables con Java/Spring sobre la plataforma
-          Fury de Mercado Libre, protegiendo millones de compradores y vendedores.
+          Ingeniero backend enfocado en detección y prevención de fraude en tiempo real en el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.
         </p>
 
         <div class="hero-actions">
           <a class="btn-primary" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="hero.cta_cv">
             📄 Descargar CV
           </a>
-          <a class="btn-secondary" href="#contact" data-i18n="hero.cta_contact">Contacto</a>
+          <a class="btn-secondary" href="#contact" data-i18n="hero.cta_contact">
+            Contacto
+          </a>
+          <a class="btn-secondary" href="https://www.linkedin.com/in/pedro-matias-spergge/" target="_blank" rel="noopener">
+            LinkedIn ↗
+          </a>
         </div>
       </div>
 
-      <div class="hero-photo-wrap">
-        <img src="assets/img/foto.jpg" alt="Matias Spergge en MercadoLibre" class="hero-photo" />
+      <div class="hero-avatar-container">
+        <div class="hero-avatar-glow"></div>
+        <div class="hero-avatar-ring"></div>
+        <img src="assets/img/foto.jpg" alt="Matias Spergge" class="hero-avatar" />
       </div>
     </div>
   </section>
 
-  <!-- ─── SKILLS STRIP ──────────────────────────────────── -->
-  <div class="skills-strip">
-    <span class="strip-label">Stack</span>
-    <span class="chip hi">Java 17</span>
-    <span class="chip hi">Spring Boot</span>
-    <span class="chip hi">Fury (ML)</span>
-    <span class="chip">Angular</span>
-    <span class="chip">TypeScript</span>
-    <span class="chip">PostgreSQL</span>
-    <span class="chip">Docker</span>
-    <span class="chip">Kubernetes</span>
-    <span class="chip">AWS</span>
-    <span class="chip">Node.js</span>
+  <!-- ─── BENTO METRICS STRIP ────────────────────────────── -->
+  <div class="bento-strip reveal">
+    <div class="bento-card">
+      <span class="bento-icon">🛡️</span>
+      <span class="bento-title" data-i18n="bento.meli.title">Mercado Libre</span>
+      <span class="bento-subtitle" data-i18n="bento.meli.sub">Fraud Prevention VIS & Mkt</span>
+    </div>
+    <div class="bento-card">
+      <span class="bento-icon">⚡</span>
+      <span class="bento-title" data-i18n="bento.tech.title">High Scale Backend</span>
+      <span class="bento-subtitle" data-i18n="bento.tech.sub">Java 17 · Spring · Fury</span>
+    </div>
+    <div class="bento-card">
+      <span class="bento-icon">🧠</span>
+      <span class="bento-title" data-i18n="bento.ai.title">Inteligencia Artificial</span>
+      <span class="bento-subtitle" data-i18n="bento.ai.sub">Licenciatura UBP (2026–2028)</span>
+    </div>
+    <div class="bento-card">
+      <span class="bento-icon">📍</span>
+      <span class="bento-title">La Plata, AR</span>
+      <span class="bento-subtitle" data-i18n="bento.loc.sub">Tolosa · Remote ready</span>
+    </div>
   </div>
 
-  <!-- ─── EXPERIENCE ────────────────────────────────────── -->
+  <!-- ─── TECH STACK ─────────────────────────────────────── -->
+  <section id="stack">
+    <p class="section-eyebrow" data-i18n="nav.stack">Stack Tecnológico</p>
+    
+    <div class="stack-categories reveal">
+      <div class="stack-row">
+        <span class="stack-category-label">Backend & Core</span>
+        <div class="stack-chips">
+          <span class="chip highlight">Java 17</span>
+          <span class="chip highlight">Spring Boot</span>
+          <span class="chip highlight">Fury Platform (MeLi)</span>
+          <span class="chip">Microservicios</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">Node.js</span>
+        </div>
+      </div>
+
+      <div class="stack-row">
+        <span class="stack-category-label">Data & AI</span>
+        <div class="stack-chips">
+          <span class="chip highlight">Machine Learning</span>
+          <span class="chip">Python</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">Supabase</span>
+        </div>
+      </div>
+
+      <div class="stack-row">
+        <span class="stack-category-label">Cloud & DevOps</span>
+        <div class="stack-chips">
+          <span class="chip">Docker</span>
+          <span class="chip">Kubernetes</span>
+          <span class="chip">AWS</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Firebase</span>
+        </div>
+      </div>
+
+      <div class="stack-row">
+        <span class="stack-category-label">Frontend & UI</span>
+        <div class="stack-chips">
+          <span class="chip">TypeScript</span>
+          <span class="chip">Angular</span>
+          <span class="chip">Modern HTML/CSS</span>
+          <span class="chip">PWA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─────────────────────────────────────── -->
   <section id="experience">
-    <p class="section-eyebrow" data-i18n="nav.experience">Experiencia</p>
+    <p class="section-eyebrow" data-i18n="nav.experience">Experiencia Profesional</p>
 
     <div class="list-wrapper">
 
-      <div class="list-item reveal">
+      <!-- Mercado Libre -->
+      <div class="list-card reveal">
         <div class="logo-box">
-          <img src="assets/img/logos/meli.png" alt="MercadoLibre">
+          <img src="assets/img/logos/meli.png" alt="Mercado Libre" loading="lazy" />
         </div>
         <div>
           <div class="item-header">
-            <span class="item-title">MercadoLibre</span>
+            <span class="item-title">Mercado Libre</span>
             <span class="item-date" data-i18n="exp.meli.date">Nov 2024 – Presente</span>
           </div>
 
-          <div class="item-role-container">
+          <!-- Rol Actual -->
+          <div class="role-block">
             <p class="item-role" data-i18n="exp.meli.role2">Ssr. Software Engineer · PF IT Backend VIS & Marketing</p>
             <p class="item-subdate" data-i18n="exp.meli.subd2">Ene 2026 – Presente</p>
             <div class="tag-row">
-              <span class="tag accent" data-i18n="exp.meli.tag1">Prevención de fraude</span>
+              <span class="tag accent" data-i18n="exp.meli.tag1">Prevención de Fraude</span>
               <span class="tag accent">Java / Spring</span>
-              <span class="tag accent">Fury platform</span>
+              <span class="tag accent">Fury Platform</span>
               <span class="tag">Microservicios</span>
-              <span class="tag">Fintech</span>
+              <span class="tag">High-Throughput</span>
             </div>
           </div>
 
-          <div class="item-role-container" style="margin-top: 24px; opacity: 0.8;">
+          <!-- Rol Anterior -->
+          <div class="role-block" style="opacity: 0.85;">
             <p class="item-role" data-i18n="exp.meli.role1">Ssr. Software Engineer · PF IT Backend Seller</p>
             <p class="item-subdate" data-i18n="exp.meli.subd1">Nov 2024 – Ene 2026</p>
             <div class="tag-row">
               <span class="tag">Java / Spring</span>
-              <span class="tag">Fury platform</span>
+              <span class="tag">Fury Platform</span>
               <span class="tag">Seller Experience</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="list-item dim reveal">
+      <!-- AVLA -->
+      <div class="list-card dim reveal">
         <div class="logo-box">
-          <img src="assets/img/logos/avla.png" alt="AVLA">
+          <img src="assets/img/logos/avla.png" alt="AVLA" loading="lazy" />
         </div>
         <div>
           <div class="item-header">
@@ -763,9 +1220,10 @@
         </div>
       </div>
 
-      <div class="list-item dim reveal">
+      <!-- Techforb -->
+      <div class="list-card dim reveal">
         <div class="logo-box">
-          <img src="assets/img/logos/techforb.png" alt="Techforb">
+          <img src="assets/img/logos/techforb.png" alt="Techforb" loading="lazy" />
         </div>
         <div>
           <div class="item-header">
@@ -786,21 +1244,25 @@
     </div>
   </section>
 
-  <!-- ─── EDUCATION ─────────────────────────────────────── -->
+  <!-- ─── EDUCATION ──────────────────────────────────────── -->
   <section id="education">
-    <p class="section-eyebrow" data-i18n="nav.education">Educación</p>
+    <p class="section-eyebrow" data-i18n="nav.education">Educación & Certificaciones</p>
 
     <div class="list-wrapper">
 
-      <div class="list-item reveal">
+      <!-- UBP -->
+      <div class="list-card reveal">
         <div class="logo-box">
-          <img src="assets/img/logos/ubp.png" alt="UBP">
+          <img src="assets/img/logos/ubp.png" alt="Universidad Blas Pascal" loading="lazy" />
         </div>
         <div>
           <div class="item-header">
             <span class="item-title">
               Universidad Blas Pascal
-              <span class="edu-badge current"><span class="edu-badge-dot"></span><span data-i18n="edu.badge.current">En curso</span></span>
+              <span class="edu-badge current">
+                <span class="edu-badge-dot"></span>
+                <span data-i18n="edu.badge.current">En curso</span>
+              </span>
             </span>
             <span class="item-date" data-i18n="edu.ubp.date">Ago 2026 – Feb 2028</span>
           </div>
@@ -814,122 +1276,147 @@
         </div>
       </div>
 
-      <div class="list-item reveal">
+      <!-- IFTS 29 -->
+      <div class="list-card reveal">
         <div class="logo-box">
-          <img src="assets/img/logos/ifts.png" alt="IFTS">
+          <img src="assets/img/logos/ifts.png" alt="IFTS N°29" loading="lazy" />
         </div>
         <div>
           <div class="item-header">
             <span class="item-title">
               IFTS N°29
-              <span class="edu-badge done">✓ Graduado</span>
+              <span class="edu-badge done">✓ <span data-i18n="edu.badge.graduated">Graduado</span></span>
             </span>
             <span class="item-date">2022 – 2025</span>
           </div>
-          <p class="item-role" data-i18n="edu.ifts.degree">Tecnicatura en Desarrollo de Software</p>
+          <p class="item-role" data-i18n="edu.ifts.degree">Tecnicatura Superior en Desarrollo de Software</p>
+          <div class="tag-row">
+            <span class="tag">Algoritmos & Estructuras de Datos</span>
+            <span class="tag">Bases de Datos</span>
+            <span class="tag">Ingeniería de Software</span>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ─── PROJECTS ──────────────────────────────────────── -->
+  <!-- ─── PROJECTS ───────────────────────────────────────── -->
   <section id="projects">
-    <p class="section-eyebrow" data-i18n="nav.projects">Proyectos</p>
+    <p class="section-eyebrow" data-i18n="nav.projects">Proyectos Destacados</p>
 
     <div class="projects-grid">
 
+      <!-- Fundación Patitas -->
       <div class="project-card featured reveal">
         <div class="project-header">
-          <div class="project-emoji">🐾</div>
-          <a class="project-link" href="https://github.com/pmspergge" target="_blank" rel="noopener">
-            GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div class="project-icon-box">🐾</div>
+          <div class="project-links-group">
+            <a class="project-link-btn" href="https://github.com/pmspergge" target="_blank" rel="noopener">
+              GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </a>
+          </div>
         </div>
         <div class="project-name" data-i18n="proj.patitas.name">Fundación Patitas</div>
         <p class="project-desc" data-i18n="proj.patitas.desc">
-          PWA para fundación de rescate animal. Galería de adopción, panel admin, donaciones vía MercadoPago y backend serverless con Supabase.
+          PWA integral para fundación de rescate animal en San Luis. Galería de adopción interactiva, panel de administración seguro, integración de donaciones con MercadoPago y backend serverless con Supabase.
         </p>
         <div class="tag-row">
-          <span class="tag">PWA</span>
+          <span class="tag accent">PWA</span>
           <span class="tag">Supabase</span>
           <span class="tag">MercadoPago</span>
+          <span class="tag">Auth</span>
         </div>
       </div>
 
+      <!-- SPA Administración -->
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-emoji">🏢</div>
-          <a class="project-link" href="https://administracionspa.com.ar" target="_blank" rel="noopener">
-            Ver sitio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div class="project-icon-box">🏢</div>
+          <div class="project-links-group">
+            <a class="project-link-btn" href="https://administracionspa.com.ar" target="_blank" rel="noopener">
+              Live Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </a>
+          </div>
         </div>
         <div class="project-name" data-i18n="proj.spa.name">SPA Administración</div>
         <p class="project-desc" data-i18n="proj.spa.desc">
-          Sitio institucional moderno para administración de consorcios. PWA estática con animaciones y tipografía bold.
+          Sitio institucional moderno y PWA para administración de consorcios en San Bernardo. Enfoque mobile-first, performance optimizada y hosting en Firebase.
         </p>
         <div class="tag-row">
-          <span class="tag">HTML/CSS/JS</span>
+          <span class="tag">HTML5 / Modern CSS</span>
+          <span class="tag">JavaScript</span>
           <span class="tag">Firebase Hosting</span>
         </div>
       </div>
 
+      <!-- University Claims -->
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-emoji">🎓</div>
-          <a class="project-link" href="https://github.com/pmspergge/SitioWeb_Universidad_Reclamos_y_Quejas" target="_blank" rel="noopener">
-            GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div class="project-icon-box">🎓</div>
+          <div class="project-links-group">
+            <a class="project-link-btn" href="https://github.com/pmspergge/SitioWeb_Universidad_Reclamos_y_Quejas" target="_blank" rel="noopener">
+              GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="project-name" data-i18n="proj.univ.name">University Claims</div>
+        <div class="project-name" data-i18n="proj.univ.name">University Claims Platform</div>
         <p class="project-desc" data-i18n="proj.univ.desc">
-          Plataforma web de reclamos universitarios. Desarrollado en equipo con Scrum, presentado en evento de comunidad.
+          Plataforma web de gestión de reclamos universitarios y seguimiento de incidentes. Desarrollada en equipo aplicando metodologías ágiles Scrum.
         </p>
         <div class="tag-row">
           <span class="tag">React</span>
           <span class="tag">Node.js</span>
           <span class="tag">MongoDB</span>
+          <span class="tag">REST API</span>
         </div>
       </div>
 
+      <!-- Argentina Programa -->
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-emoji">🛒</div>
-          <a class="project-link" href="https://frontendargprograma-e695a.web.app/" target="_blank" rel="noopener">
-            Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div class="project-icon-box">🛒</div>
+          <div class="project-links-group">
+            <a class="project-link-btn" href="https://frontendargprograma-e695a.web.app/" target="_blank" rel="noopener">
+              Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="project-name" data-i18n="proj.arg.name">Argentina Programa</div>
+        <div class="project-name" data-i18n="proj.arg.name">Argentina Programa Portfolio</div>
         <p class="project-desc" data-i18n="proj.arg.desc">
-          Proyecto final del programa. Full Stack: Angular 15 + Spring Boot + MySQL. Deploy en Firebase y Railway.
+          Proyecto integrador full stack. Arquitectura desacoplada con Angular, backend robusto en Spring Boot con autenticación JWT y base de datos relacional MySQL.
         </p>
         <div class="tag-row">
           <span class="tag">Angular 15</span>
           <span class="tag">Spring Boot</span>
           <span class="tag">MySQL</span>
+          <span class="tag">JWT</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ─── ABOUT ─────────────────────────────────────────── -->
+  <!-- ─── ABOUT ME ───────────────────────────────────────── -->
   <section id="about">
-    <p class="section-eyebrow" data-i18n="nav.about">Sobre mí</p>
+    <p class="section-eyebrow" data-i18n="nav.about">Sobre Mí</p>
 
     <div class="about-grid">
       <div class="about-card reveal">
         <p class="about-card-label" data-i18n="about.loc.label">Ubicación</p>
-        <p class="about-card-value">La Plata, Buenos Aires, Argentina</p>
+        <p class="about-card-value" data-i18n="about.loc.value">Tolosa, La Plata, Buenos Aires, Argentina</p>
       </div>
+
       <div class="about-card reveal">
-        <p class="about-card-label" data-i18n="about.edu.label">Formación actual</p>
-        <p class="about-card-value" data-i18n="about.edu.value">Lic. en Inteligencia Artificial · UBP · 2026–2028</p>
+        <p class="about-card-label" data-i18n="about.edu.label">Formación Universitaria</p>
+        <p class="about-card-value" data-i18n="about.edu.value">Licenciatura en Inteligencia Artificial · Universidad Blas Pascal (2026–2028)</p>
       </div>
+
       <div class="about-card reveal">
-        <p class="about-card-label" data-i18n="about.focus.label">Foco actual</p>
-        <p class="about-card-value" data-i18n="about.focus.value">Backend engineering, sistemas distribuidos, detección de fraude a escala Latam e inteligencia artificial.</p>
+        <p class="about-card-label" data-i18n="about.focus.label">Enfoque Técnico</p>
+        <p class="about-card-value" data-i18n="about.focus.value">Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva y machine learning.</p>
       </div>
+
       <div class="about-card reveal">
         <p class="about-card-label" data-i18n="about.lang.label">Idiomas</p>
         <p class="about-card-value" data-i18n="about.lang.value">Español (nativo) · Inglés (profesional)</p>
@@ -937,7 +1424,7 @@
     </div>
   </section>
 
-  <!-- ─── CONTACT ───────────────────────────────────────── -->
+  <!-- ─── CONTACT ────────────────────────────────────────── -->
   <section id="contact">
     <p class="section-eyebrow" data-i18n="nav.contact">Contacto</p>
 
@@ -952,169 +1439,207 @@
         <span class="contact-icon">✉️</span> pmatiasspergge@gmail.com
       </a>
       <a class="contact-btn reveal" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="contact.cv">
-        <span class="contact-icon">📄</span> CV PDF
+        <span class="contact-icon">📄</span> Descargar CV (PDF)
       </a>
     </div>
   </section>
 
-  <!-- ─── FOOTER ────────────────────────────────────────── -->
+  <!-- ─── FOOTER ─────────────────────────────────────────── -->
   <footer>
-    <span class="footer-copy">© <span id="year"></span> Matias Spergge</span>
+    <span class="footer-copy">© <span id="year"></span> Matias Spergge · mspergge.dev</span>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/pedro-matias-spergge/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/pmspergge" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:pmatiasspergge@gmail.com">Email</a>
     </div>
   </footer>
+
 </div>
 
-<!-- ─── JS ───────────────────────────────────────────────── -->
+<!-- ─── CLIENT-SIDE SCRIPTS ──────────────────────────────── -->
 <script>
-  /* ── i18n ────────────────────────────────────────────── */
+  /* ── i18n Translations Dictionary ──────────────────────── */
   const STRINGS = {
     es: {
+      "nav.stack":         "Stack",
       "nav.experience":    "Experiencia",
       "nav.education":     "Educación",
       "nav.projects":      "Proyectos",
       "nav.about":         "Sobre mí",
       "nav.contact":       "Contacto",
-      "hero.badge":        "Disponible para side projects",
-      "hero.role":         "Fraud Prevention @ MercadoLibre",
-      "hero.bio":          "Ingeniero backend enfocado en detección y prevención de fraude en el ecosistema de e-commerce más grande de Latinoamérica. Construyo sistemas escalables con Java/Spring sobre la plataforma Fury de Mercado Libre, protegiendo millones de compradores y vendedores.",
+      "hero.badge":        "Disponible para proyectos & mentoría",
+      "hero.role":         "Fraud Prevention @ Mercado Libre",
+      "hero.bio":          "Ingeniero backend enfocado en detección y prevención de fraude en tiempo real en el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.",
       "hero.cta_cv":       "📄 Descargar CV",
       "hero.cta_contact":  "Contacto",
+      "bento.meli.title":  "Mercado Libre",
+      "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
+      "bento.tech.title":  "High Scale Backend",
+      "bento.tech.sub":    "Java 17 · Spring · Fury",
+      "bento.ai.title":    "Inteligencia Artificial",
+      "bento.ai.sub":      "Licenciatura UBP (2026–2028)",
+      "bento.loc.sub":     "Tolosa · Remote ready",
       "exp.meli.date":     "Nov 2024 – Presente",
       "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
-      "exp.meli.subd2":   "Ene 2026 – Presente",
+      "exp.meli.subd2":    "Ene 2026 – Presente",
       "exp.meli.role1":    "Ssr. Software Engineer · PF IT Backend Seller",
-      "exp.meli.subd1":   "Nov 2024 – Ene 2026",
-      "exp.meli.tag1":     "Prevención de fraude",
+      "exp.meli.subd1":    "Nov 2024 – Ene 2026",
+      "exp.meli.tag1":     "Prevención de Fraude",
       "exp.avla.date":     "Jun 2023 – Nov 2024",
       "exp.avla.role":     "Full Stack Developer · PortalApp (remoto, Chile)",
       "exp.tech.date":     "Abr 2023 – Nov 2024",
       "exp.tech.role":     "Full Stack Developer (remoto, USA)",
       "edu.badge.current": "En curso",
+      "edu.badge.graduated": "Graduado",
       "edu.ubp.date":      "Ago 2026 – Feb 2028",
       "edu.ubp.degree":    "Licenciatura en Inteligencia Artificial",
       "edu.ubp.tag1":      "Machine Learning",
       "edu.ubp.tag2":      "Deep Learning",
-      "edu.ifts.degree":   "Tecnicatura en Desarrollo de Software",
+      "edu.ifts.degree":   "Tecnicatura Superior en Desarrollo de Software",
       "proj.patitas.name": "Fundación Patitas",
-      "proj.patitas.desc": "PWA para fundación de rescate animal. Galería de adopción, panel admin, donaciones vía MercadoPago y backend serverless con Supabase.",
+      "proj.patitas.desc": "PWA integral para fundación de rescate animal en San Luis. Galería de adopción interactiva, panel de administración seguro, integración de donaciones con MercadoPago y backend serverless con Supabase.",
       "proj.spa.name":     "SPA Administración",
-      "proj.spa.desc":     "Sitio institucional moderno para administración de consorcios. PWA estática con animaciones y tipografía bold.",
-      "proj.univ.name":    "University Claims",
-      "proj.univ.desc":    "Plataforma web de reclamos universitarios. Desarrollado en equipo con Scrum, presentado en evento de comunidad.",
-      "proj.arg.name":     "Argentina Programa",
-      "proj.arg.desc":     "Proyecto final del programa. Full Stack: Angular 15 + Spring Boot + MySQL. Deploy en Firebase y Railway.",
+      "proj.spa.desc":     "Sitio institucional moderno y PWA para administración de consorcios en San Bernardo. Enfoque mobile-first, performance optimizada y hosting en Firebase.",
+      "proj.univ.name":    "University Claims Platform",
+      "proj.univ.desc":    "Plataforma web de gestión de reclamos universitarios y seguimiento de incidentes. Desarrollada en equipo aplicando metodologías ágiles Scrum.",
+      "proj.arg.name":     "Argentina Programa Portfolio",
+      "proj.arg.desc":     "Proyecto integrador full stack. Arquitectura desacoplada con Angular, backend robusto en Spring Boot con autenticación JWT y base de datos relacional MySQL.",
       "about.loc.label":   "Ubicación",
-      "about.edu.label":   "Formación actual",
-      "about.edu.value":   "Lic. en Inteligencia Artificial · UBP · 2026–2028",
-      "about.focus.label": "Foco actual",
-      "about.focus.value": "Backend engineering, sistemas distribuidos, detección de fraude a escala Latam e inteligencia artificial.",
+      "about.loc.value":   "Tolosa, La Plata, Buenos Aires, Argentina",
+      "about.edu.label":   "Formación Universitaria",
+      "about.edu.value":   "Licenciatura en Inteligencia Artificial · Universidad Blas Pascal (2026–2028)",
+      "about.focus.label": "Enfoque Técnico",
+      "about.focus.value": "Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva y machine learning.",
       "about.lang.label":  "Idiomas",
       "about.lang.value":  "Español (nativo) · Inglés (profesional)",
-      "contact.cv":        "📄 CV PDF",
+      "contact.cv":        "📄 Descargar CV (PDF)"
     },
     en: {
+      "nav.stack":         "Stack",
       "nav.experience":    "Experience",
       "nav.education":     "Education",
       "nav.projects":      "Projects",
       "nav.about":         "About",
       "nav.contact":       "Contact",
-      "hero.badge":        "Available for side projects",
-      "hero.role":         "Fraud Prevention @ MercadoLibre",
-      "hero.bio":          "Backend engineer focused on fraud detection and prevention in the largest e-commerce ecosystem in Latin America. I build scalable systems with Java/Spring on MercadoLibre's Fury platform, protecting millions of buyers and sellers.",
+      "hero.badge":        "Available for projects & mentoring",
+      "hero.role":         "Fraud Prevention @ Mercado Libre",
+      "hero.bio":          "Backend engineer specialized in real-time fraud detection and prevention for Latin America's largest e-commerce and fintech ecosystem. Building highly available, distributed architectures with Java/Spring on Mercado Libre's Fury platform.",
       "hero.cta_cv":       "📄 Download CV",
-      "hero.cta_contact":  "Contact me",
+      "hero.cta_contact":  "Contact",
+      "bento.meli.title":  "Mercado Libre",
+      "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
+      "bento.tech.title":  "High Scale Backend",
+      "bento.tech.sub":    "Java 17 · Spring · Fury",
+      "bento.ai.title":    "Artificial Intelligence",
+      "bento.ai.sub":      "B.Sc. in AI @ UBP (2026–2028)",
+      "bento.loc.sub":     "Tolosa · Remote ready",
       "exp.meli.date":     "Nov 2024 – Present",
       "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
-      "exp.meli.subd2":   "Jan 2026 – Present",
+      "exp.meli.subd2":    "Jan 2026 – Present",
       "exp.meli.role1":    "Ssr. Software Engineer · PF IT Backend Seller",
-      "exp.meli.subd1":   "Nov 2024 – Jan 2026",
+      "exp.meli.subd1":    "Nov 2024 – Jan 2026",
       "exp.meli.tag1":     "Fraud Prevention",
       "exp.avla.date":     "Jun 2023 – Nov 2024",
       "exp.avla.role":     "Full Stack Developer · PortalApp (remote, Chile)",
       "exp.tech.date":     "Apr 2023 – Nov 2024",
       "exp.tech.role":     "Full Stack Developer (remote, USA)",
-      "edu.badge.current": "In progress",
+      "edu.badge.current": "In Progress",
+      "edu.badge.graduated": "Graduated",
       "edu.ubp.date":      "Aug 2026 – Feb 2028",
       "edu.ubp.degree":    "Bachelor's in Artificial Intelligence",
       "edu.ubp.tag1":      "Machine Learning",
       "edu.ubp.tag2":      "Deep Learning",
-      "edu.ifts.degree":   "Software Development Technician",
+      "edu.ifts.degree":   "Higher Technician in Software Development",
       "proj.patitas.name": "Fundación Patitas",
-      "proj.patitas.desc": "PWA for an animal rescue foundation. Adoption gallery, admin panel, MercadoPago donations, and serverless backend with Supabase.",
+      "proj.patitas.desc": "End-to-end PWA for an animal rescue foundation in San Luis. Interactive adoption gallery, secure admin dashboard, MercadoPago donation gateway, and serverless backend with Supabase.",
       "proj.spa.name":     "SPA Administración",
-      "proj.spa.desc":     "Modern institutional site for consortium management. Static PWA with animations and bold typography.",
-      "proj.univ.name":    "University Claims",
-      "proj.univ.desc":    "Web platform for university complaints. Built with a team using Scrum, showcased at a community event.",
-      "proj.arg.name":     "Argentina Programa",
-      "proj.arg.desc":     "Final project of the national program. Full Stack: Angular 15 + Spring Boot + MySQL. Deployed on Firebase and Railway.",
+      "proj.spa.desc":     "Modern institutional website and PWA for building management in San Bernardo. Mobile-first design, optimized Core Web Vitals, and Firebase Hosting.",
+      "proj.univ.name":    "University Claims Platform",
+      "proj.univ.desc":    "Web platform for university grievance tracking and incident resolution. Developed within an agile team applying Scrum methodologies.",
+      "proj.arg.name":     "Argentina Programa Portfolio",
+      "proj.arg.desc":     "Comprehensive full stack project. Decoupled Angular architecture, Spring Boot backend with JWT authentication, and MySQL relational database.",
       "about.loc.label":   "Location",
-      "about.edu.label":   "Current studies",
-      "about.edu.value":   "B.Sc. in Artificial Intelligence · UBP · 2026–2028",
-      "about.focus.label": "Current focus",
-      "about.focus.value": "Backend engineering, distributed systems, fraud detection at Latam scale, and artificial intelligence.",
+      "about.loc.value":   "Tolosa, La Plata, Buenos Aires, Argentina",
+      "about.edu.label":   "University Education",
+      "about.edu.value":   "B.Sc. in Artificial Intelligence · Universidad Blas Pascal (2026–2028)",
+      "about.focus.label": "Technical Focus",
+      "about.focus.value": "Backend engineering, high-throughput distributed systems, large-scale fraud prevention, and machine learning.",
       "about.lang.label":  "Languages",
       "about.lang.value":  "Spanish (native) · English (professional)",
-      "contact.cv":        "📄 CV PDF",
+      "contact.cv":        "📄 Download CV (PDF)"
     },
     pt: {
+      "nav.stack":         "Stack",
       "nav.experience":    "Experiência",
       "nav.education":     "Educação",
       "nav.projects":      "Projetos",
       "nav.about":         "Sobre mim",
       "nav.contact":       "Contato",
-      "hero.badge":        "Disponível para side projects",
-      "hero.role":         "Prevenção de Fraude @ MercadoLibre",
-      "hero.bio":          "Engenheiro backend focado em detecção e prevenção de fraude no maior ecossistema de e-commerce da América Latina. Construo sistemas escaláveis com Java/Spring na plataforma Fury do MercadoLibre, protegendo milhões de compradores e vendedores.",
+      "hero.badge":        "Disponível para projetos & mentoria",
+      "hero.role":         "Prevenção de Fraude @ Mercado Libre",
+      "hero.bio":          "Engenheiro backend focado em detecção e prevenção de fraude em tempo real no maior ecossistema de e-commerce e fintech da América Latina. Construo arquiteturas distribuídas de alta disponibilidade com Java/Spring na plataforma Fury do Mercado Libre.",
       "hero.cta_cv":       "📄 Baixar CV",
       "hero.cta_contact":  "Contato",
+      "bento.meli.title":  "Mercado Libre",
+      "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
+      "bento.tech.title":  "High Scale Backend",
+      "bento.tech.sub":    "Java 17 · Spring · Fury",
+      "bento.ai.title":    "Inteligência Artificial",
+      "bento.ai.sub":      "Bacharelado UBP (2026–2028)",
+      "bento.loc.sub":     "Tolosa · Remote ready",
       "exp.meli.date":     "Nov 2024 – Presente",
       "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
-      "exp.meli.subd2":   "Jan 2026 – Presente",
+      "exp.meli.subd2":    "Jan 2026 – Presente",
       "exp.meli.role1":    "Ssr. Software Engineer · PF IT Backend Seller",
-      "exp.meli.subd1":   "Nov 2024 – Jan 2026",
+      "exp.meli.subd1":    "Nov 2024 – Jan 2026",
       "exp.meli.tag1":     "Prevenção de Fraude",
       "exp.avla.date":     "Jun 2023 – Nov 2024",
       "exp.avla.role":     "Full Stack Developer · PortalApp (remoto, Chile)",
       "exp.tech.date":     "Abr 2023 – Nov 2024",
       "exp.tech.role":     "Full Stack Developer (remoto, EUA)",
       "edu.badge.current": "Em andamento",
+      "edu.badge.graduated": "Graduado",
       "edu.ubp.date":      "Ago 2026 – Fev 2028",
       "edu.ubp.degree":    "Bacharelado em Inteligência Artificial",
       "edu.ubp.tag1":      "Machine Learning",
       "edu.ubp.tag2":      "Deep Learning",
-      "edu.ifts.degree":   "Técnico em Desenvolvimento de Software",
+      "edu.ifts.degree":   "Técnico Superior em Desenvolvimento de Software",
       "proj.patitas.name": "Fundación Patitas",
-      "proj.patitas.desc": "PWA para fundação de resgate animal. Galeria de adoção, painel admin, doações via MercadoPago e backend serverless com Supabase.",
+      "proj.patitas.desc": "PWA para fundação de resgate animal em San Luis. Galeria de adoção, painel admin seguro, doações via MercadoPago e backend serverless com Supabase.",
       "proj.spa.name":     "SPA Administración",
-      "proj.spa.desc":     "Site institucional moderno para administração de condomínios. PWA estática com animações e tipografia bold.",
-      "proj.univ.name":    "University Claims",
-      "proj.univ.desc":    "Plataforma web de reclamações universitárias. Desenvolvido em equipe com Scrum, apresentado em evento de comunidade.",
-      "proj.arg.name":     "Argentina Programa",
-      "proj.arg.desc":     "Projeto final do programa nacional. Full Stack: Angular 15 + Spring Boot + MySQL. Deploy no Firebase e Railway.",
+      "proj.spa.desc":     "Site institucional moderno e PWA para administração de condomínios em San Bernardo. Mobile-first, alta performance e deploy no Firebase.",
+      "proj.univ.name":    "University Claims Platform",
+      "proj.univ.desc":    "Plataforma web de gerenciamento de reclamações universitárias e acompanhamento de incidentes com metodologia ágil Scrum.",
+      "proj.arg.name":     "Argentina Programa Portfolio",
+      "proj.arg.desc":     "Projeto integrador full stack. Frontend Angular desacoplado, backend Spring Boot com autenticação JWT e banco relacional MySQL.",
       "about.loc.label":   "Localização",
-      "about.edu.label":   "Formação atual",
-      "about.edu.value":   "Bacharel em IA · UBP · 2026–2028",
-      "about.focus.label": "Foco atual",
-      "about.focus.value": "Engenharia backend, sistemas distribuídos, detecção de fraude em escala Latam e inteligência artificial.",
+      "about.loc.value":   "Tolosa, La Plata, Buenos Aires, Argentina",
+      "about.edu.label":   "Formação Universitária",
+      "about.edu.value":   "Bacharelado em Inteligência Artificial · UBP (2026–2028)",
+      "about.focus.label": "Foco Técnico",
+      "about.focus.value": "Engenharia backend, sistemas distribuídos de alta escala, prevenção de fraude e inteligência artificial.",
       "about.lang.label":  "Idiomas",
       "about.lang.value":  "Espanhol (nativo) · Inglês (profissional)",
-      "contact.cv":        "📄 Baixar CV",
+      "contact.cv":        "📄 Baixar CV (PDF)"
     }
   };
 
-  let currentLang = 'es';
+  /* ── Language Switcher with LocalStorage ───────────────── */
+  let currentLang = localStorage.getItem('user_lang') || 'es';
 
   function applyLang(lang) {
+    if (!STRINGS[lang]) lang = 'es';
     currentLang = lang;
+    localStorage.setItem('user_lang', lang);
+
     const strings = STRINGS[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (strings[key] !== undefined) el.textContent = strings[key];
+      if (strings[key] !== undefined) {
+        el.textContent = strings[key];
+      }
     });
+
     document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('[data-lang-btn]').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
@@ -1122,46 +1647,55 @@
   }
 
   document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang-btn')));
+    btn.addEventListener('click', () => {
+      applyLang(btn.getAttribute('data-lang-btn'));
+    });
   });
 
-  /* ── Theme toggle ─────────────────────────────────────── */
+  /* ── Theme Switcher with LocalStorage ─────────────────── */
   const themeToggle = document.getElementById('themeToggle');
-  let dark = true;
+  const savedTheme = localStorage.getItem('user_theme');
+  let isDark = savedTheme ? (savedTheme === 'dark') : true;
 
-  function applyTheme(isDark) {
-    dark = isDark;
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    themeToggle.textContent = isDark ? '🌙' : '☀️';
-    themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+  function applyTheme(dark) {
+    isDark = dark;
+    localStorage.setItem('user_theme', dark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    themeToggle.textContent = dark ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
   }
 
-  themeToggle.addEventListener('click', () => applyTheme(!dark));
+  themeToggle.addEventListener('click', () => {
+    applyTheme(!isDark);
+  });
 
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    applyTheme(false);
-  }
-
-  /* ── Scroll reveal ────────────────────────────────────── */
+  /* ── Scroll Reveal with IntersectionObserver ──────────── */
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
-        const idx = siblings.indexOf(entry.target);
-        entry.target.style.transitionDelay = (idx * 60) + 'ms';
+        const parent = entry.target.parentElement;
+        if (parent) {
+          const siblings = [...parent.querySelectorAll('.reveal')];
+          const idx = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${idx * 45}ms`;
+        }
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -30px 0px'
+  });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  /* ── Footer year ──────────────────────────────────────── */
+  /* ── Footer Year ──────────────────────────────────────── */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ── Init ─────────────────────────────────────────────── */
-  applyLang('es');
+  /* ── Initialize ───────────────────────────────────────── */
+  applyTheme(isDark);
+  applyLang(currentLang);
 </script>
 
 </body>
