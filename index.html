@@ -2127,9 +2127,10 @@
   updateClock();
   setInterval(updateClock, 30000);
 
-  /* ── Dynamic Live Dates Calculation ───────────────────── */
+  /* ── Dynamic Live Dates Calculation (LinkedIn standard) ── */
   function getDurationString(startDate, endDate, lang) {
-    let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+    // Cálculo inclusivo exacto estándar de LinkedIn
+    let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth()) + 1;
     if (months < 1) months = 1;
     const years = Math.floor(months / 12);
     const remMonths = months % 12;
@@ -2143,7 +2144,7 @@
       let parts = [];
       if (years > 0) parts.push(`${years} ano${years > 1 ? 's' : ''}`);
       if (remMonths > 0) parts.push(`${remMonths} m${remMonths > 1 ? 'eses' : 'ês'}`);
-      return parts.join(' ');
+      return parts.join(' e ');
     } else {
       let parts = [];
       if (years > 0) parts.push(`${years} año${years > 1 ? 's' : ''}`);
