@@ -3,112 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Matias Spergge — Ssr. Software Engineer en Mercado Libre (Prevención de Fraude). Estudiante de Licenciatura en Inteligencia Artificial." />
-  <meta name="keywords" content="Matias Spergge, Software Engineer, Backend, Mercado Libre, Fraud Prevention, Java, Spring Boot, Fury, Artificial Intelligence, Argentina" />
+  <meta name="description" content="Matias Spergge — Ssr. Software Engineer en Mercado Libre (Prevención de Fraude). Estudiante de Licenciatura en Inteligencia Artificial (UBP)." />
+  <meta name="keywords" content="Matias Spergge, Software Engineer, Backend, Mercado Libre, Fraud Prevention, Java, Spring Boot, Fury, Artificial Intelligence, Machine Learning, Argentina" />
   <meta name="author" content="Matias Spergge" />
 
-  <!-- Open Graph / LinkedIn / Facebook -->
+  <!-- Open Graph / LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://matisperggedev.web.app/" />
   <meta property="og:title" content="Matias Spergge — Ssr. Software Engineer @ Mercado Libre" />
-  <meta property="og:description" content="Ssr. Software Engineer especializado en Prevención de Fraude en Mercado Libre y estudiante de Lic. en Inteligencia Artificial." />
+  <meta property="og:description" content="Ssr. Software Engineer en Mercado Libre (Prevención de Fraude VIS & Marketing) y estudiante de Lic. en Inteligencia Artificial." />
   <meta property="og:image" content="https://matisperggedev.web.app/assets/img/foto.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Matias Spergge — Ssr. Software Engineer @ Mercado Libre" />
-  <meta name="twitter:description" content="Ssr. Software Engineer especializado en Prevención de Fraude en Mercado Libre y estudiante de Lic. en Inteligencia Artificial." />
+  <meta name="twitter:description" content="Ssr. Software Engineer en Mercado Libre (Prevención de Fraude VIS & Marketing) y estudiante de Lic. en Inteligencia Artificial." />
   <meta name="twitter:image" content="https://matisperggedev.web.app/assets/img/foto.jpg" />
 
   <title>Matias Spergge — Ssr. Software Engineer @ Mercado Libre</title>
 
-  <!-- SVG Favicon with High-Res Emoji / Initial -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2309090b%22/><text y=%2266%22 x=%2250%22 font-size=%2254%22 font-family=%22system-ui,sans-serif%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%237c9cff%22>M</text></svg>" />
-  <link rel="apple-touch-icon" href="assets/img/foto.jpg" />
+  <!-- SVG Favicon with High-Res Brand Symbol -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2226%22 fill=%22%2309090b%22/><text y=%2267%22 x=%2250%22 font-size=%2252%22 font-family=%22system-ui,-apple-system,sans-serif%22 font-weight=%22800%22 text-anchor=%22middle%22 fill=%22%236366f1%22>M</text></svg>" />
 
-  <!-- Fonts: Inter & JetBrains Mono -->
+  <!-- Google Fonts: Inter, Outfit & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── DESIGN SYSTEM TOKENS ───────────────────────────── */
+    /* ─── DESIGN TOKENS & SYSTEM ─────────────────────────── */
     :root {
-      --accent:         #7c9cff;
-      --accent-hover:   #9ab4ff;
-      --accent-dim:     rgba(124, 156, 255, 0.25);
-      --accent-glow:    rgba(124, 156, 255, 0.08);
-      --accent-glow-strong: rgba(124, 156, 255, 0.16);
-      
-      --emerald:        #10b981;
-      --emerald-glow:   rgba(16, 185, 129, 0.12);
+      --primary:         #6366f1;
+      --primary-glow:    rgba(99, 102, 241, 0.22);
+      --primary-subtle:  rgba(99, 102, 241, 0.08);
+      --accent:          #38bdf8;
+      --emerald:         #10b981;
+      --emerald-glow:    rgba(16, 185, 129, 0.2);
 
-      --radius-sm:      6px;
-      --radius-md:      10px;
-      --radius-lg:      16px;
-      --radius-xl:      24px;
-      --radius-full:    9999px;
+      --radius-sm:       6px;
+      --radius-md:       12px;
+      --radius-lg:       18px;
+      --radius-xl:       28px;
+      --radius-full:     9999px;
 
-      --font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-mono:      'JetBrains Mono', monospace;
+      --font-sans:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display:    'Outfit', var(--font-sans);
+      --font-mono:       'JetBrains Mono', monospace;
 
-      --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
-      --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-smooth:    cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-smooth:     cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ─── DARK THEME (Default / Linear-Style) ────────────── */
+    /* ─── DARK THEME (Default / Linear OLED) ─────────────── */
     [data-theme="dark"] {
-      --bg:             #09090b;
-      --bg-surface:     #111114;
-      --bg-card:        #141418;
-      --bg-card-hover:  #1a1a20;
-      --bg-subtle:      #1c1c22;
-      --bg-glass:       rgba(9, 9, 11, 0.75);
+      --bg:              #060608;
+      --bg-surface:      #0c0d12;
+      --bg-card:         #12131a;
+      --bg-card-hover:   #171822;
+      --bg-subtle:       #1a1b26;
+      --bg-glass:        rgba(6, 6, 8, 0.78);
 
-      --border:         rgba(255, 255, 255, 0.07);
-      --border-strong:  rgba(255, 255, 255, 0.14);
-      --border-accent:  rgba(124, 156, 255, 0.3);
+      --border:          rgba(255, 255, 255, 0.08);
+      --border-strong:   rgba(255, 255, 255, 0.16);
+      --border-active:   rgba(99, 102, 241, 0.4);
 
-      --text-primary:   #f4f4f6;
-      --text-secondary: #a1a1aa;
-      --text-muted:     #71717a;
-      --text-inverse:   #09090b;
+      --text-primary:    #f8fafc;
+      --text-secondary:  #94a3b8;
+      --text-muted:      #64748b;
+      --text-inverse:    #060608;
 
-      --card-shadow:    0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
-      --glow-mesh:      radial-gradient(circle 500px at 50% -100px, rgba(124, 156, 255, 0.08), transparent 70%);
-      --grid-pattern:   radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+      --card-shadow:     0 8px 32px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      --hero-mesh:       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.15), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(56, 189, 248, 0.08), transparent 60%);
+      --grid-dot:        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
     }
 
     /* ─── LIGHT THEME ────────────────────────────────────── */
     [data-theme="light"] {
-      --bg:             #fbfbfc;
-      --bg-surface:     #f4f4f6;
-      --bg-card:        #ffffff;
-      --bg-card-hover:  #fafafc;
-      --bg-subtle:      #ebecef;
-      --bg-glass:       rgba(251, 251, 252, 0.85);
+      --bg:              #f8fafc;
+      --bg-surface:      #f1f5f9;
+      --bg-card:         #ffffff;
+      --bg-card-hover:   #f8fafc;
+      --bg-subtle:       #e2e8f0;
+      --bg-glass:        rgba(248, 250, 252, 0.82);
 
-      --border:         rgba(0, 0, 0, 0.08);
-      --border-strong:  rgba(0, 0, 0, 0.16);
-      --border-accent:  rgba(59, 104, 255, 0.35);
+      --border:          rgba(0, 0, 0, 0.08);
+      --border-strong:   rgba(0, 0, 0, 0.15);
+      --border-active:   rgba(79, 70, 229, 0.4);
 
-      --text-primary:   #09090b;
-      --text-secondary: #52525b;
-      --text-muted:     #8e8e93;
-      --text-inverse:   #ffffff;
+      --text-primary:    #0f172a;
+      --text-secondary:  #475569;
+      --text-muted:      #94a3b8;
+      --text-inverse:    #ffffff;
 
-      --card-shadow:    0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.06);
-      --glow-mesh:      radial-gradient(circle 500px at 50% -100px, rgba(59, 104, 255, 0.08), transparent 70%);
-      --grid-pattern:   radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-      
-      --accent:         #3b68ff;
-      --accent-hover:   #2552f5;
-      --accent-dim:     rgba(59, 104, 255, 0.2);
-      --accent-glow:    rgba(59, 104, 255, 0.08);
+      --card-shadow:     0 8px 30px -4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.06);
+      --hero-mesh:       radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.1), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 10%, rgba(56, 189, 248, 0.08), transparent 60%);
+      --grid-dot:        radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
     }
 
-    /* ─── GLOBAL RESET & BASE ────────────────────────────── */
+    /* ─── GLOBAL RESETS ──────────────────────────────────── */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -128,47 +121,69 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
-      background-image: var(--glow-mesh);
+      background-image: var(--hero-mesh);
+      background-attachment: fixed;
       background-repeat: no-repeat;
-      transition: background-color 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth);
+      transition: background-color 0.25s var(--ease-in-out), color 0.25s var(--ease-in-out);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-family: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { display: block; max-width: 100%; }
 
     .container {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 24px;
+    }
+
+    /* ─── SPOTLIGHT CARD EFFECT ──────────────────────────── */
+    .spotlight-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.25s var(--ease-smooth), border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--primary-glow), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    .spotlight-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
     }
 
     /* ─── NAVBAR ─────────────────────────────────────────── */
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       background: var(--bg-glass);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      backdrop-filter: blur(20px) saturate(190%);
+      -webkit-backdrop-filter: blur(20px) saturate(190%);
       transition: border-color 0.2s, background-color 0.2s;
     }
 
@@ -183,19 +198,20 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-family: var(--font-mono);
       font-size: 14px;
       font-weight: 600;
       letter-spacing: -0.02em;
     }
 
-    .nav-brand-dot {
+    .nav-brand-indicator {
+      position: relative;
       width: 8px;
       height: 8px;
-      background: var(--accent);
+      background: var(--primary);
       border-radius: var(--radius-full);
-      box-shadow: 0 0 10px var(--accent);
+      box-shadow: 0 0 12px var(--primary);
     }
 
     .nav-brand span {
@@ -205,9 +221,9 @@
 
     .nav-links {
       display: flex;
-      gap: 4px;
-      background: var(--bg-subtle);
-      padding: 4px;
+      gap: 2px;
+      background: var(--bg-surface);
+      padding: 3px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
     }
@@ -234,7 +250,7 @@
 
     .lang-switcher {
       display: flex;
-      background: var(--bg-subtle);
+      background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 3px;
@@ -243,7 +259,7 @@
 
     .lang-btn {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-secondary);
       padding: 4px 8px;
       border-radius: var(--radius-sm);
@@ -254,13 +270,9 @@
 
     .lang-btn.active {
       background: var(--bg-card);
-      color: var(--text-primary);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      color: var(--primary);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
       border: 1px solid var(--border-strong);
-    }
-
-    .lang-btn:not(.active):hover {
-      color: var(--text-primary);
     }
 
     .theme-toggle {
@@ -271,7 +283,7 @@
       justify-content: center;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-      background: var(--bg-subtle);
+      background: var(--bg-surface);
       color: var(--text-secondary);
       font-size: 15px;
       transition: all 0.15s;
@@ -281,13 +293,22 @@
       color: var(--text-primary);
       border-color: var(--border-strong);
       background: var(--bg-card);
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
 
     /* ─── HERO SECTION ───────────────────────────────────── */
     .hero {
-      padding: 72px 0 54px;
+      padding: 68px 0 44px;
       position: relative;
+    }
+
+    .hero-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .hero-badge {
@@ -295,15 +316,14 @@
       align-items: center;
       gap: 8px;
       background: var(--emerald-glow);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: var(--radius-full);
       padding: 6px 14px 6px 10px;
       font-size: 12px;
       font-weight: 500;
       color: var(--emerald);
-      margin-bottom: 28px;
       font-family: var(--font-mono);
-      animation: fadeSlideUp 0.5s var(--ease-out) both;
+      animation: fadeSlideUp 0.5s var(--ease-smooth) both;
     }
 
     .badge-dot {
@@ -311,8 +331,17 @@
       height: 7px;
       background: var(--emerald);
       border-radius: 50%;
-      flex-shrink: 0;
+      box-shadow: 0 0 8px var(--emerald);
       animation: pulse 2s infinite;
+    }
+
+    .hero-telemetry {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     @keyframes pulse {
@@ -324,31 +353,34 @@
     .hero-layout {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 48px;
+      gap: 44px;
       align-items: center;
     }
 
     .hero-name {
-      font-size: clamp(38px, 5.5vw, 54px);
-      font-weight: 700;
-      line-height: 1.1;
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 56px);
+      font-weight: 800;
+      line-height: 1.08;
       letter-spacing: -0.04em;
-      color: var(--text-primary);
-      margin-bottom: 14px;
-      animation: fadeSlideUp 0.55s 0.05s var(--ease-out) both;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, var(--text-primary) 20%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeSlideUp 0.55s 0.05s var(--ease-smooth) both;
     }
 
     .hero-role {
       font-size: 17px;
       color: var(--text-secondary);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       line-height: 1.5;
       font-family: var(--font-mono);
-      animation: fadeSlideUp 0.55s 0.1s var(--ease-out) both;
+      animation: fadeSlideUp 0.55s 0.1s var(--ease-smooth) both;
     }
 
     .hero-role strong {
-      color: var(--accent);
+      color: var(--primary);
       font-weight: 600;
     }
 
@@ -356,16 +388,16 @@
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.7;
-      max-width: 540px;
-      margin-bottom: 32px;
-      animation: fadeSlideUp 0.55s 0.15s var(--ease-out) both;
+      max-width: 530px;
+      margin-bottom: 30px;
+      animation: fadeSlideUp 0.55s 0.15s var(--ease-smooth) both;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      animation: fadeSlideUp 0.55s 0.2s var(--ease-out) both;
+      animation: fadeSlideUp 0.55s 0.2s var(--ease-smooth) both;
     }
 
     .btn-primary {
@@ -379,13 +411,13 @@
       padding: 10px 22px;
       border-radius: var(--radius-sm);
       transition: transform 0.2s var(--ease-spring), opacity 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      opacity: 0.94;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+      opacity: 0.92;
+      box-shadow: 0 8px 24px var(--primary-glow);
     }
 
     .btn-secondary {
@@ -397,98 +429,162 @@
       font-size: 13px;
       font-weight: 500;
       border: 1px solid var(--border-strong);
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: var(--radius-sm);
       transition: all 0.2s var(--ease-smooth);
     }
 
     .btn-secondary:hover {
       background: var(--bg-subtle);
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--primary);
+      color: var(--primary);
       transform: translateY(-2px);
     }
 
-    /* Hero Avatar */
-    .hero-avatar-container {
+    /* Hero Avatar - Calibrated Crop for Matias */
+    .hero-avatar-frame {
       position: relative;
       flex-shrink: 0;
-      animation: fadeIn 0.8s 0.1s var(--ease-out) both;
+      animation: fadeIn 0.8s 0.1s var(--ease-smooth) both;
     }
 
     .hero-avatar-glow {
       position: absolute;
-      inset: -12px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--accent-glow-strong) 0%, transparent 70%);
-      filter: blur(8px);
+      inset: -14px;
+      border-radius: 36px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      filter: blur(12px);
       z-index: 0;
     }
 
-    .hero-avatar-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      border: 1px dashed var(--border-strong);
-      animation: rotateRing 30s linear infinite;
-    }
-
-    @keyframes rotateRing {
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-avatar {
+    .hero-avatar-box {
       position: relative;
       z-index: 1;
-      width: 176px;
-      height: 176px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 25%;
+      width: 170px;
+      height: 170px;
+      border-radius: 28px;
       border: 2px solid var(--border-strong);
       background: var(--bg-card);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s var(--ease-spring);
     }
 
-    /* ─── BENTO HIGHLIGHTS ────────────────────────────────── */
-    .bento-strip {
+    .hero-avatar-box:hover {
+      transform: scale(1.03) rotate(-1deg);
+      border-color: var(--primary);
+    }
+
+    .hero-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Precisely calibrated to focus on Matias (upper body & face) */
+      object-position: 70% 55%;
+      transform: scale(1.15);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-avatar-box:hover .hero-avatar-img {
+      transform: scale(1.2);
+    }
+
+    /* ─── LIVE FRAUD ENGINE TERMINAL WIDGET ───────────────── */
+    .terminal-section {
+      margin: 10px 0 36px;
+    }
+
+    .terminal-card {
+      background: #0b0c10;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+      font-family: var(--font-mono);
+    }
+
+    .terminal-header {
+      background: #14151c;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #eab308; }
+    .dot-green { background: #22c55e; }
+
+    .terminal-title {
+      font-size: 11px;
+      color: #94a3b8;
+      letter-spacing: 0.05em;
+    }
+
+    .terminal-body {
+      padding: 18px 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      min-height: 110px;
+    }
+
+    .terminal-line {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .terminal-prompt { color: var(--accent); }
+    .terminal-tag {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .tag-pass { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .tag-highlight { color: #facc15; }
+    .tag-blue { color: var(--accent); }
+
+    /* ─── BENTO METRICS ──────────────────────────────────── */
+    .bento-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
     }
 
-    .bento-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 16px;
+    .bento-item {
+      padding: 18px;
       display: flex;
       flex-direction: column;
       gap: 6px;
-      transition: all 0.2s var(--ease-smooth);
-    }
-
-    .bento-card:hover {
-      border-color: var(--border-strong);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--card-shadow);
     }
 
     .bento-icon {
-      font-size: 20px;
-      margin-bottom: 2px;
+      font-size: 22px;
+      margin-bottom: 4px;
     }
 
     .bento-title {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
     }
 
-    .bento-subtitle {
+    .bento-desc {
       font-size: 12px;
       color: var(--text-muted);
       font-family: var(--font-mono);
@@ -497,7 +593,7 @@
 
     /* ─── SECTIONS & HEADINGS ────────────────────────────── */
     section {
-      padding: 56px 0;
+      padding: 52px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -528,7 +624,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(14px);
-      transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+      transition: opacity 0.45s var(--ease-smooth), transform 0.45s var(--ease-smooth);
     }
 
     .reveal.visible {
@@ -537,7 +633,7 @@
     }
 
     /* ─── TECH STACK ──────────────────────────────────────── */
-    .stack-categories {
+    .stack-container {
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -550,13 +646,13 @@
       flex-wrap: wrap;
     }
 
-    .stack-category-label {
+    .stack-label {
       font-size: 11px;
       font-family: var(--font-mono);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
-      width: 110px;
+      width: 120px;
       flex-shrink: 0;
     }
 
@@ -570,86 +666,74 @@
     .chip {
       font-size: 12px;
       font-family: var(--font-mono);
-      padding: 5px 11px;
+      padding: 6px 12px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       color: var(--text-secondary);
-      background: var(--bg-card);
+      background: var(--bg-surface);
       white-space: nowrap;
       transition: all 0.15s;
     }
 
     .chip:hover {
-      border-color: var(--accent);
+      border-color: var(--primary);
       color: var(--text-primary);
-      background: var(--bg-subtle);
+      background: var(--bg-card);
       transform: translateY(-1px);
     }
 
     .chip.highlight {
-      border-color: var(--border-accent);
-      color: var(--accent);
-      background: var(--accent-glow);
-      font-weight: 500;
+      border-color: var(--border-active);
+      color: var(--primary);
+      background: var(--primary-subtle);
+      font-weight: 600;
     }
 
-    /* ─── EXPERIENCE & EDUCATION COMMON ───────────────────── */
-    .list-wrapper {
+    /* ─── EXPERIENCE & EDUCATION TIMELINE ─────────────────── */
+    .timeline {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .list-card {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 22px;
+    .timeline-card {
       padding: 24px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      transition: all 0.2s var(--ease-smooth);
-      box-shadow: var(--card-shadow);
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 20px;
     }
 
-    .list-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-    }
-
-    .list-card.dim {
-      opacity: 0.85;
-    }
-
-    .list-card.dim:hover {
-      opacity: 1;
-    }
-
-    /* Standardized Logo Box */
-    .logo-box {
-      width: 56px;
-      height: 56px;
-      flex-shrink: 0;
-      background: #ffffff;
-      border-radius: var(--radius-md);
+    /* HIGH-DEFINITION VECTOR LOGO BADGES */
+    .brand-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
       transition: transform 0.25s var(--ease-spring);
     }
 
-    .list-card:hover .logo-box {
-      transform: scale(1.06) rotate(-1.5deg);
+    .timeline-card:hover .brand-badge {
+      transform: scale(1.08) rotate(-2deg);
     }
 
-    .logo-box img {
+    .badge-meli     { background: #ffe600; }
+    .badge-avla     { background: #0050ff; }
+    .badge-techforb { background: #1a162b; border-color: #7c3aed; }
+    .badge-ubp      { background: #9b1b30; }
+    .badge-ifts     { background: #003366; }
+
+    .brand-svg {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .item-header {
@@ -663,12 +747,9 @@
 
     .item-title {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
       letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .item-date {
@@ -713,19 +794,19 @@
       font-family: var(--font-mono);
       padding: 3px 8px;
       border-radius: var(--radius-sm);
-      background: var(--bg-subtle);
+      background: var(--bg-surface);
       color: var(--text-secondary);
       border: 1px solid var(--border);
     }
 
     .tag.accent {
-      background: var(--accent-glow);
-      color: var(--accent);
-      border-color: var(--accent-dim);
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border-color: var(--border-active);
       font-weight: 500;
     }
 
-    .edu-badge {
+    .edu-status-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -736,24 +817,16 @@
       border-radius: var(--radius-full);
     }
 
-    .edu-badge.current {
-      background: rgba(16, 185, 129, 0.12);
+    .pill-current {
+      background: rgba(16, 185, 129, 0.15);
       color: #10b981;
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
-    .edu-badge.done {
-      background: var(--bg-subtle);
+    .pill-done {
+      background: var(--bg-surface);
       color: var(--text-muted);
       border: 1px solid var(--border);
-    }
-
-    .edu-badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      animation: pulse 2s infinite;
     }
 
     /* ─── PROJECTS ────────────────────────────────────────── */
@@ -764,28 +837,15 @@
     }
 
     .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
       padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      transition: all 0.25s var(--ease-smooth);
-      box-shadow: var(--card-shadow);
-      position: relative;
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-strong);
-      border-color: var(--border-strong);
-      background: var(--bg-card-hover);
+      gap: 14px;
     }
 
     .project-card.featured {
-      border-color: var(--accent-dim);
-      background: linear-gradient(180deg, var(--accent-glow) 0%, transparent 100%), var(--bg-card);
+      border-color: var(--border-active);
+      background: linear-gradient(180deg, var(--primary-subtle) 0%, var(--bg-card) 100%);
     }
 
     .project-header {
@@ -794,18 +854,13 @@
       align-items: flex-start;
     }
 
-    .project-icon-box {
+    .project-icon {
       font-size: 24px;
       line-height: 1;
       padding: 8px;
-      background: var(--bg-subtle);
+      background: var(--bg-surface);
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
-    }
-
-    .project-links-group {
-      display: flex;
-      gap: 8px;
     }
 
     .project-link-btn {
@@ -815,17 +870,17 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 4px 8px;
+      padding: 4px 10px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
-      background: var(--bg-subtle);
+      background: var(--bg-surface);
       transition: all 0.15s;
     }
 
     .project-link-btn:hover {
-      color: var(--accent);
-      border-color: var(--accent-dim);
-      background: var(--accent-glow);
+      color: var(--primary);
+      border-color: var(--border-active);
+      background: var(--primary-subtle);
     }
 
     .project-link-btn svg {
@@ -840,9 +895,8 @@
 
     .project-name {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
-      margin-top: 4px;
     }
 
     .project-desc {
@@ -860,17 +914,7 @@
     }
 
     .about-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
       padding: 22px;
-      transition: all 0.2s var(--ease-smooth);
-      box-shadow: var(--card-shadow);
-    }
-
-    .about-card:hover {
-      border-color: var(--border-strong);
-      background: var(--bg-card-hover);
     }
 
     .about-card-label {
@@ -901,7 +945,7 @@
       gap: 10px;
       font-size: 14px;
       font-weight: 500;
-      padding: 12px 20px;
+      padding: 12px 22px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-strong);
       color: var(--text-primary);
@@ -911,14 +955,35 @@
     }
 
     .contact-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--bg-card-hover);
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--bg-surface);
       transform: translateY(-2px);
     }
 
-    .contact-icon {
-      font-size: 18px;
+    .contact-icon { font-size: 18px; }
+
+    /* ─── TOAST NOTIFICATION ─────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-primary);
+      color: var(--text-inverse);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s var(--ease-spring);
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     /* ─── FOOTER ──────────────────────────────────────────── */
@@ -950,19 +1015,13 @@
     }
 
     .footer-links a:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     /* ─── KEYFRAME ANIMATIONS ─────────────────────────────── */
     @keyframes fadeSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -972,23 +1031,20 @@
 
     /* ─── RESPONSIVE BREAKPOINTS ─────────────────────────── */
     @media (max-width: 768px) {
-      .bento-strip {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .hero { padding: 48px 0 36px; }
-      .hero-layout { grid-template-columns: 1fr; gap: 32px; text-align: left; }
-      .hero-avatar-container { order: -1; align-self: flex-start; }
-      .hero-avatar { width: 120px; height: 120px; }
-      .bento-strip { grid-template-columns: 1fr; }
+      .hero { padding: 44px 0 32px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+      .hero-avatar-frame { order: -1; align-self: flex-start; }
+      .hero-avatar-box { width: 120px; height: 120px; border-radius: 20px; }
+      .bento-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; }
-      .list-card { grid-template-columns: 1fr; gap: 16px; }
-      .logo-box { width: 48px; height: 48px; }
-      .stack-category-label { width: 100%; margin-bottom: -4px; }
+      .timeline-card { grid-template-columns: 1fr; gap: 16px; }
+      .stack-label { width: 100%; margin-bottom: -4px; }
       .container { padding: 0 18px; }
       .contact-row { flex-direction: column; }
       .contact-btn { width: 100%; justify-content: center; }
@@ -1011,11 +1067,12 @@
   <div class="container">
     <div class="nav-inner">
       <a href="#hero" class="nav-brand" aria-label="Inicio">
-        <div class="nav-brand-dot"></div>
+        <div class="nav-brand-indicator"></div>
         mspergge<span>.dev</span>
       </a>
 
       <ul class="nav-links">
+        <li><a href="#engine"     data-i18n="nav.engine">Engine</a></li>
         <li><a href="#stack"      data-i18n="nav.stack">Stack</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Experiencia</a></li>
         <li><a href="#education"  data-i18n="nav.education">Educación</a></li>
@@ -1024,10 +1081,10 @@
       </ul>
 
       <div class="nav-controls">
-        <div class="lang-switcher" role="group" aria-label="Seleccionar idioma">
-          <button class="lang-btn active" data-lang-btn="es" aria-label="Español">ES</button>
-          <button class="lang-btn"        data-lang-btn="en" aria-label="English">EN</button>
-          <button class="lang-btn"        data-lang-btn="pt" aria-label="Português">PT</button>
+        <div class="lang-switcher" role="group" aria-label="Idioma">
+          <button class="lang-btn active" data-lang-btn="es">ES</button>
+          <button class="lang-btn"        data-lang-btn="en">EN</button>
+          <button class="lang-btn"        data-lang-btn="pt">PT</button>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
       </div>
@@ -1040,9 +1097,16 @@
 
   <!-- ─── HERO ───────────────────────────────────────────── -->
   <section class="hero" id="hero">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      <span data-i18n="hero.badge">Disponible para proyectos & mentoría</span>
+    <div class="hero-top-row">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero.badge">Disponible para proyectos & mentoría</span>
+      </div>
+      <div class="hero-telemetry">
+        <span>📍 Tolosa, La Plata</span>
+        <span>·</span>
+        <span id="liveClock">22:00 UTC-3</span>
+      </div>
     </div>
 
     <div class="hero-layout">
@@ -1055,51 +1119,92 @@
         </p>
 
         <p class="hero-bio" data-i18n="hero.bio">
-          Ingeniero backend enfocado en detección y prevención de fraude en tiempo real en el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.
+          Ingeniero backend enfocado en detección y mitigación de fraude en tiempo real para el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.
         </p>
 
         <div class="hero-actions">
           <a class="btn-primary" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="hero.cta_cv">
             📄 Descargar CV
           </a>
-          <a class="btn-secondary" href="#contact" data-i18n="hero.cta_contact">
-            Contacto
-          </a>
+          <button class="btn-secondary" id="copyEmailBtn" data-email="pmatiasspergge@gmail.com">
+            📋 Copiar Email
+          </button>
           <a class="btn-secondary" href="https://www.linkedin.com/in/pedro-matias-spergge/" target="_blank" rel="noopener">
             LinkedIn ↗
           </a>
         </div>
       </div>
 
-      <div class="hero-avatar-container">
+      <div class="hero-avatar-frame">
         <div class="hero-avatar-glow"></div>
-        <div class="hero-avatar-ring"></div>
-        <img src="assets/img/foto.jpg" alt="Matias Spergge" class="hero-avatar" />
+        <div class="hero-avatar-box">
+          <img src="assets/img/foto.jpg" alt="Matias Spergge en Mercado Libre" class="hero-avatar-img" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── BENTO METRICS STRIP ────────────────────────────── -->
-  <div class="bento-strip reveal">
-    <div class="bento-card">
-      <span class="bento-icon">🛡️</span>
-      <span class="bento-title" data-i18n="bento.meli.title">Mercado Libre</span>
-      <span class="bento-subtitle" data-i18n="bento.meli.sub">Fraud Prevention VIS & Mkt</span>
+  <!-- ─── LIVE FRAUD ENGINE TERMINAL WIDGET ───────────────── -->
+  <div class="terminal-section reveal" id="engine">
+    <div class="terminal-card">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+        </div>
+        <span class="terminal-title">meli-fraud-detection-engine // fury-production-v2.6</span>
+        <span style="font-size:10px; color:#64748b;">LATENCY: 11ms</span>
+      </div>
+      <div class="terminal-body" id="terminalContent">
+        <div class="terminal-line">
+          <span class="terminal-prompt">$</span>
+          <span>fury-cli health --service=pf-vis-marketing-scoring</span>
+        </div>
+        <div class="terminal-line">
+          <span style="color:#22c55e;">[ONLINE]</span>
+          <span>Spring Boot 3.3.x on Fury Cluster · Latam Region: Active-Active</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-prompt">></span>
+          <span>Evaluated Tx #984210928 · <span class="tag-blue">Risk Score: 0.02</span> · Action: <span class="terminal-tag tag-pass">APPROVED</span> · Time: <span class="tag-highlight">8.4ms</span></span>
+        </div>
+      </div>
     </div>
-    <div class="bento-card">
-      <span class="bento-icon">⚡</span>
-      <span class="bento-title" data-i18n="bento.tech.title">High Scale Backend</span>
-      <span class="bento-subtitle" data-i18n="bento.tech.sub">Java 17 · Spring · Fury</span>
+  </div>
+
+  <!-- ─── BENTO METRICS ──────────────────────────────────── -->
+  <div class="bento-grid reveal">
+    <div class="spotlight-card bento-item">
+      <div class="card-content">
+        <span class="bento-icon">🛡️</span>
+        <span class="bento-title" data-i18n="bento.meli.title">Mercado Libre</span>
+        <span class="bento-desc" data-i18n="bento.meli.sub">Fraud Prevention VIS & Mkt</span>
+      </div>
     </div>
-    <div class="bento-card">
-      <span class="bento-icon">🧠</span>
-      <span class="bento-title" data-i18n="bento.ai.title">Inteligencia Artificial</span>
-      <span class="bento-subtitle" data-i18n="bento.ai.sub">Licenciatura UBP (2026–2028)</span>
+
+    <div class="spotlight-card bento-item">
+      <div class="card-content">
+        <span class="bento-icon">⚡</span>
+        <span class="bento-title" data-i18n="bento.tech.title">High Scale Backend</span>
+        <span class="bento-desc" data-i18n="bento.tech.sub">Java 17 · Spring · Fury Platform</span>
+      </div>
     </div>
-    <div class="bento-card">
-      <span class="bento-icon">📍</span>
-      <span class="bento-title">La Plata, AR</span>
-      <span class="bento-subtitle" data-i18n="bento.loc.sub">Tolosa · Remote ready</span>
+
+    <div class="spotlight-card bento-item">
+      <div class="card-content">
+        <span class="bento-icon">🧠</span>
+        <span class="bento-title" data-i18n="bento.ai.title">Inteligencia Artificial</span>
+        <span class="bento-desc" data-i18n="bento.ai.sub">Licenciatura UBP (2026–2028)</span>
+      </div>
+    </div>
+
+    <div class="spotlight-card bento-item">
+      <div class="card-content">
+        <span class="bento-icon">📍</span>
+        <span class="bento-title">La Plata, AR</span>
+        <span class="bento-desc" data-i18n="bento.loc.sub">Tolosa · Remote Ready</span>
+      </div>
     </div>
   </div>
 
@@ -1107,9 +1212,9 @@
   <section id="stack">
     <p class="section-eyebrow" data-i18n="nav.stack">Stack Tecnológico</p>
     
-    <div class="stack-categories reveal">
+    <div class="stack-container reveal">
       <div class="stack-row">
-        <span class="stack-category-label">Backend & Core</span>
+        <span class="stack-label">Backend & Core</span>
         <div class="stack-chips">
           <span class="chip highlight">Java 17</span>
           <span class="chip highlight">Spring Boot</span>
@@ -1121,7 +1226,7 @@
       </div>
 
       <div class="stack-row">
-        <span class="stack-category-label">Data & AI</span>
+        <span class="stack-label">Data & AI</span>
         <div class="stack-chips">
           <span class="chip highlight">Machine Learning</span>
           <span class="chip">Python</span>
@@ -1133,18 +1238,18 @@
       </div>
 
       <div class="stack-row">
-        <span class="stack-category-label">Cloud & DevOps</span>
+        <span class="stack-label">Cloud & DevOps</span>
         <div class="stack-chips">
           <span class="chip">Docker</span>
           <span class="chip">Kubernetes</span>
           <span class="chip">AWS</span>
           <span class="chip">GitHub Actions</span>
-          <span class="chip">Firebase</span>
+          <span class="chip">Firebase Hosting</span>
         </div>
       </div>
 
       <div class="stack-row">
-        <span class="stack-category-label">Frontend & UI</span>
+        <span class="stack-label">Frontend & UI</span>
         <div class="stack-chips">
           <span class="chip">TypeScript</span>
           <span class="chip">Angular</span>
@@ -1159,14 +1264,19 @@
   <section id="experience">
     <p class="section-eyebrow" data-i18n="nav.experience">Experiencia Profesional</p>
 
-    <div class="list-wrapper">
+    <div class="timeline">
 
       <!-- Mercado Libre -->
-      <div class="list-card reveal">
-        <div class="logo-box">
-          <img src="assets/img/logos/meli.png" alt="Mercado Libre" loading="lazy" />
+      <div class="spotlight-card timeline-card reveal">
+        <div class="brand-badge badge-meli" title="Mercado Libre">
+          <!-- Official Handshake Logo SVG -->
+          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="50" rx="42" ry="28" fill="#ffe600"/>
+            <path d="M28 46C28 46 36 34 50 48C64 34 72 46 72 46C72 46 64 62 50 56C36 62 28 46 28 46Z" fill="#2d3277"/>
+            <path d="M42 45L50 53L58 45" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div>
+        <div class="card-content">
           <div class="item-header">
             <span class="item-title">Mercado Libre</span>
             <span class="item-date" data-i18n="exp.meli.date">Nov 2024 – Presente</span>
@@ -1199,11 +1309,13 @@
       </div>
 
       <!-- AVLA -->
-      <div class="list-card dim reveal">
-        <div class="logo-box">
-          <img src="assets/img/logos/avla.png" alt="AVLA" loading="lazy" />
+      <div class="spotlight-card timeline-card reveal">
+        <div class="brand-badge badge-avla" title="AVLA">
+          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="1">avla</text>
+          </svg>
         </div>
-        <div>
+        <div class="card-content">
           <div class="item-header">
             <span class="item-title">AVLA</span>
             <span class="item-date" data-i18n="exp.avla.date">Jun 2023 – Nov 2024</span>
@@ -1221,11 +1333,20 @@
       </div>
 
       <!-- Techforb -->
-      <div class="list-card dim reveal">
-        <div class="logo-box">
-          <img src="assets/img/logos/techforb.png" alt="Techforb" loading="lazy" />
+      <div class="spotlight-card timeline-card reveal">
+        <div class="brand-badge badge-techforb" title="Techforb">
+          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50L48 32C52 28 60 28 64 32C68 36 68 44 64 48L52 60L64 72C68 76 68 84 64 88C60 92 52 92 48 88L30 70C24 64 24 56 30 50Z" fill="url(#techforbGrad)"/>
+            <circle cx="74" cy="50" r="8" fill="#a855f7"/>
+            <defs>
+              <linearGradient id="techforbGrad" x1="25" y1="25" x2="75" y2="75" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9333ea"/>
+                <stop offset="1" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-        <div>
+        <div class="card-content">
           <div class="item-header">
             <span class="item-title">Techforb</span>
             <span class="item-date" data-i18n="exp.tech.date">Abr 2023 – Nov 2024</span>
@@ -1246,21 +1367,24 @@
 
   <!-- ─── EDUCATION ──────────────────────────────────────── -->
   <section id="education">
-    <p class="section-eyebrow" data-i18n="nav.education">Educación & Certificaciones</p>
+    <p class="section-eyebrow" data-i18n="nav.education">Educación & Formación</p>
 
-    <div class="list-wrapper">
+    <div class="timeline">
 
       <!-- UBP -->
-      <div class="list-card reveal">
-        <div class="logo-box">
-          <img src="assets/img/logos/ubp.png" alt="Universidad Blas Pascal" loading="lazy" />
+      <div class="spotlight-card timeline-card reveal">
+        <div class="brand-badge badge-ubp" title="Universidad Blas Pascal">
+          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="14" fill="#9b1b30"/>
+            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="800" font-size="26" fill="#ffffff" text-anchor="middle" letter-spacing="1">UBP</text>
+          </svg>
         </div>
-        <div>
+        <div class="card-content">
           <div class="item-header">
             <span class="item-title">
               Universidad Blas Pascal
-              <span class="edu-badge current">
-                <span class="edu-badge-dot"></span>
+              <span class="edu-status-pill pill-current">
+                <span class="badge-dot"></span>
                 <span data-i18n="edu.badge.current">En curso</span>
               </span>
             </span>
@@ -1277,22 +1401,30 @@
       </div>
 
       <!-- IFTS 29 -->
-      <div class="list-card reveal">
-        <div class="logo-box">
-          <img src="assets/img/logos/ifts.png" alt="IFTS N°29" loading="lazy" />
+      <div class="spotlight-card timeline-card reveal">
+        <div class="brand-badge badge-ifts" title="IFTS N°29">
+          <svg class="brand-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="14" fill="#003366"/>
+            <rect x="18" y="18" width="28" height="28" fill="#0284c7" rx="4"/>
+            <rect x="54" y="18" width="28" height="28" fill="#16a34a" rx="4"/>
+            <rect x="18" y="54" width="28" height="28" fill="#16a34a" rx="4"/>
+            <rect x="54" y="54" width="28" height="28" fill="#0284c7" rx="4"/>
+            <circle cx="50" cy="50" r="16" fill="#eab308"/>
+            <text x="50" y="55" font-family="'JetBrains Mono', monospace" font-weight="800" font-size="14" fill="#000000" text-anchor="middle">29</text>
+          </svg>
         </div>
-        <div>
+        <div class="card-content">
           <div class="item-header">
             <span class="item-title">
               IFTS N°29
-              <span class="edu-badge done">✓ <span data-i18n="edu.badge.graduated">Graduado</span></span>
+              <span class="edu-status-pill pill-done">✓ <span data-i18n="edu.badge.graduated">Graduado</span></span>
             </span>
             <span class="item-date">2022 – 2025</span>
           </div>
           <p class="item-role" data-i18n="edu.ifts.degree">Tecnicatura Superior en Desarrollo de Software</p>
           <div class="tag-row">
             <span class="tag">Algoritmos & Estructuras de Datos</span>
-            <span class="tag">Bases de Datos</span>
+            <span class="tag">Bases de Datos Relacionales</span>
             <span class="tag">Ingeniería de Software</span>
           </div>
         </div>
@@ -1308,89 +1440,89 @@
     <div class="projects-grid">
 
       <!-- Fundación Patitas -->
-      <div class="project-card featured reveal">
-        <div class="project-header">
-          <div class="project-icon-box">🐾</div>
-          <div class="project-links-group">
+      <div class="spotlight-card project-card featured reveal">
+        <div class="card-content">
+          <div class="project-header">
+            <div class="project-icon">🐾</div>
             <a class="project-link-btn" href="https://github.com/pmspergge" target="_blank" rel="noopener">
               GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
             </a>
           </div>
-        </div>
-        <div class="project-name" data-i18n="proj.patitas.name">Fundación Patitas</div>
-        <p class="project-desc" data-i18n="proj.patitas.desc">
-          PWA integral para fundación de rescate animal en San Luis. Galería de adopción interactiva, panel de administración seguro, integración de donaciones con MercadoPago y backend serverless con Supabase.
-        </p>
-        <div class="tag-row">
-          <span class="tag accent">PWA</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">MercadoPago</span>
-          <span class="tag">Auth</span>
+          <div class="project-name" data-i18n="proj.patitas.name">Fundación Patitas</div>
+          <p class="project-desc" data-i18n="proj.patitas.desc">
+            PWA integral para fundación de rescate animal en San Luis. Galería de adopción interactiva, panel de administración seguro, integración de donaciones con MercadoPago y backend serverless con Supabase.
+          </p>
+          <div class="tag-row">
+            <span class="tag accent">PWA</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">MercadoPago</span>
+            <span class="tag">Auth</span>
+          </div>
         </div>
       </div>
 
       <!-- SPA Administración -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-icon-box">🏢</div>
-          <div class="project-links-group">
+      <div class="spotlight-card project-card reveal">
+        <div class="card-content">
+          <div class="project-header">
+            <div class="project-icon">🏢</div>
             <a class="project-link-btn" href="https://administracionspa.com.ar" target="_blank" rel="noopener">
               Live Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
             </a>
           </div>
-        </div>
-        <div class="project-name" data-i18n="proj.spa.name">SPA Administración</div>
-        <p class="project-desc" data-i18n="proj.spa.desc">
-          Sitio institucional moderno y PWA para administración de consorcios en San Bernardo. Enfoque mobile-first, performance optimizada y hosting en Firebase.
-        </p>
-        <div class="tag-row">
-          <span class="tag">HTML5 / Modern CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Firebase Hosting</span>
+          <div class="project-name" data-i18n="proj.spa.name">SPA Administración</div>
+          <p class="project-desc" data-i18n="proj.spa.desc">
+            Sitio institucional moderno y PWA para administración de consorcios en San Bernardo. Enfoque mobile-first, performance optimizada y hosting en Firebase.
+          </p>
+          <div class="tag-row">
+            <span class="tag">HTML5 / CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Firebase Hosting</span>
+          </div>
         </div>
       </div>
 
       <!-- University Claims -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-icon-box">🎓</div>
-          <div class="project-links-group">
+      <div class="spotlight-card project-card reveal">
+        <div class="card-content">
+          <div class="project-header">
+            <div class="project-icon">🎓</div>
             <a class="project-link-btn" href="https://github.com/pmspergge/SitioWeb_Universidad_Reclamos_y_Quejas" target="_blank" rel="noopener">
               GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
             </a>
           </div>
-        </div>
-        <div class="project-name" data-i18n="proj.univ.name">University Claims Platform</div>
-        <p class="project-desc" data-i18n="proj.univ.desc">
-          Plataforma web de gestión de reclamos universitarios y seguimiento de incidentes. Desarrollada en equipo aplicando metodologías ágiles Scrum.
-        </p>
-        <div class="tag-row">
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">REST API</span>
+          <div class="project-name" data-i18n="proj.univ.name">University Claims Platform</div>
+          <p class="project-desc" data-i18n="proj.univ.desc">
+            Plataforma web de gestión de reclamos universitarios y seguimiento de incidentes. Desarrollada en equipo aplicando metodologías ágiles Scrum.
+          </p>
+          <div class="tag-row">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST API</span>
+          </div>
         </div>
       </div>
 
       <!-- Argentina Programa -->
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-icon-box">🛒</div>
-          <div class="project-links-group">
+      <div class="spotlight-card project-card reveal">
+        <div class="card-content">
+          <div class="project-header">
+            <div class="project-icon">🛒</div>
             <a class="project-link-btn" href="https://frontendargprograma-e695a.web.app/" target="_blank" rel="noopener">
               Demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
             </a>
           </div>
-        </div>
-        <div class="project-name" data-i18n="proj.arg.name">Argentina Programa Portfolio</div>
-        <p class="project-desc" data-i18n="proj.arg.desc">
-          Proyecto integrador full stack. Arquitectura desacoplada con Angular, backend robusto en Spring Boot con autenticación JWT y base de datos relacional MySQL.
-        </p>
-        <div class="tag-row">
-          <span class="tag">Angular 15</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">JWT</span>
+          <div class="project-name" data-i18n="proj.arg.name">Argentina Programa Portfolio</div>
+          <p class="project-desc" data-i18n="proj.arg.desc">
+            Proyecto integrador full stack. Arquitectura desacoplada con Angular, backend robusto en Spring Boot con autenticación JWT y base de datos relacional MySQL.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Angular 15</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">JWT</span>
+          </div>
         </div>
       </div>
 
@@ -1402,24 +1534,32 @@
     <p class="section-eyebrow" data-i18n="nav.about">Sobre Mí</p>
 
     <div class="about-grid">
-      <div class="about-card reveal">
-        <p class="about-card-label" data-i18n="about.loc.label">Ubicación</p>
-        <p class="about-card-value" data-i18n="about.loc.value">Tolosa, La Plata, Buenos Aires, Argentina</p>
+      <div class="spotlight-card about-card reveal">
+        <div class="card-content">
+          <p class="about-card-label" data-i18n="about.loc.label">Ubicación</p>
+          <p class="about-card-value" data-i18n="about.loc.value">Tolosa, La Plata, Buenos Aires, Argentina</p>
+        </div>
       </div>
 
-      <div class="about-card reveal">
-        <p class="about-card-label" data-i18n="about.edu.label">Formación Universitaria</p>
-        <p class="about-card-value" data-i18n="about.edu.value">Licenciatura en Inteligencia Artificial · Universidad Blas Pascal (2026–2028)</p>
+      <div class="spotlight-card about-card reveal">
+        <div class="card-content">
+          <p class="about-card-label" data-i18n="about.edu.label">Formación Universitaria</p>
+          <p class="about-card-value" data-i18n="about.edu.value">Licenciatura en Inteligencia Artificial · Universidad Blas Pascal (2026–2028)</p>
+        </div>
       </div>
 
-      <div class="about-card reveal">
-        <p class="about-card-label" data-i18n="about.focus.label">Enfoque Técnico</p>
-        <p class="about-card-value" data-i18n="about.focus.value">Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva y machine learning.</p>
+      <div class="spotlight-card about-card reveal">
+        <div class="card-content">
+          <p class="about-card-label" data-i18n="about.focus.label">Enfoque Técnico</p>
+          <p class="about-card-value" data-i18n="about.focus.value">Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva e inteligencia artificial.</p>
+        </div>
       </div>
 
-      <div class="about-card reveal">
-        <p class="about-card-label" data-i18n="about.lang.label">Idiomas</p>
-        <p class="about-card-value" data-i18n="about.lang.value">Español (nativo) · Inglés (profesional)</p>
+      <div class="spotlight-card about-card reveal">
+        <div class="card-content">
+          <p class="about-card-label" data-i18n="about.lang.label">Idiomas</p>
+          <p class="about-card-value" data-i18n="about.lang.value">Español (nativo) · Inglés (profesional)</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1435,9 +1575,9 @@
       <a class="contact-btn reveal" href="https://github.com/pmspergge" target="_blank" rel="noopener">
         <span class="contact-icon">🐙</span> GitHub
       </a>
-      <a class="contact-btn reveal" href="mailto:pmatiasspergge@gmail.com">
+      <button class="contact-btn reveal" id="copyEmailBtn2" data-email="pmatiasspergge@gmail.com">
         <span class="contact-icon">✉️</span> pmatiasspergge@gmail.com
-      </a>
+      </button>
       <a class="contact-btn reveal" href="assets/cv/PedroMatiasSperggeCV.pdf" target="_blank" rel="noopener" data-i18n="contact.cv">
         <span class="contact-icon">📄</span> Descargar CV (PDF)
       </a>
@@ -1456,11 +1596,15 @@
 
 </div>
 
-<!-- ─── CLIENT-SIDE SCRIPTS ──────────────────────────────── -->
+<!-- ─── TOAST NOTIFICATION ──────────────────────────────── -->
+<div class="toast" id="toast">¡Copiado al portapapeles!</div>
+
+<!-- ─── JAVASCRIPT LOGIC ────────────────────────────────── -->
 <script>
-  /* ── i18n Translations Dictionary ──────────────────────── */
+  /* ── i18n Dictionary ───────────────────────────────────── */
   const STRINGS = {
     es: {
+      "nav.engine":        "Engine",
       "nav.stack":         "Stack",
       "nav.experience":    "Experiencia",
       "nav.education":     "Educación",
@@ -1469,16 +1613,15 @@
       "nav.contact":       "Contacto",
       "hero.badge":        "Disponible para proyectos & mentoría",
       "hero.role":         "Fraud Prevention @ Mercado Libre",
-      "hero.bio":          "Ingeniero backend enfocado en detección y prevención de fraude en tiempo real en el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.",
+      "hero.bio":          "Ingeniero backend enfocado en detección y mitigación de fraude en tiempo real para el ecosistema de e-commerce y fintech más grande de Latinoamérica. Construyo arquitecturas distribuidas de alta disponibilidad con Java/Spring sobre la plataforma Fury de Mercado Libre.",
       "hero.cta_cv":       "📄 Descargar CV",
-      "hero.cta_contact":  "Contacto",
       "bento.meli.title":  "Mercado Libre",
       "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
       "bento.tech.title":  "High Scale Backend",
-      "bento.tech.sub":    "Java 17 · Spring · Fury",
+      "bento.tech.sub":    "Java 17 · Spring · Fury Platform",
       "bento.ai.title":    "Inteligencia Artificial",
       "bento.ai.sub":      "Licenciatura UBP (2026–2028)",
-      "bento.loc.sub":     "Tolosa · Remote ready",
+      "bento.loc.sub":     "Tolosa · Remote Ready",
       "exp.meli.date":     "Nov 2024 – Presente",
       "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
       "exp.meli.subd2":    "Ene 2026 – Presente",
@@ -1509,12 +1652,13 @@
       "about.edu.label":   "Formación Universitaria",
       "about.edu.value":   "Licenciatura en Inteligencia Artificial · Universidad Blas Pascal (2026–2028)",
       "about.focus.label": "Enfoque Técnico",
-      "about.focus.value": "Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva y machine learning.",
+      "about.focus.value": "Ingeniería backend, sistemas distribuidos de alto rendimiento, detección de fraude a escala masiva e inteligencia artificial.",
       "about.lang.label":  "Idiomas",
       "about.lang.value":  "Español (nativo) · Inglés (profesional)",
       "contact.cv":        "📄 Descargar CV (PDF)"
     },
     en: {
+      "nav.engine":        "Engine",
       "nav.stack":         "Stack",
       "nav.experience":    "Experience",
       "nav.education":     "Education",
@@ -1523,16 +1667,15 @@
       "nav.contact":       "Contact",
       "hero.badge":        "Available for projects & mentoring",
       "hero.role":         "Fraud Prevention @ Mercado Libre",
-      "hero.bio":          "Backend engineer specialized in real-time fraud detection and prevention for Latin America's largest e-commerce and fintech ecosystem. Building highly available, distributed architectures with Java/Spring on Mercado Libre's Fury platform.",
+      "hero.bio":          "Backend engineer specialized in real-time fraud detection and mitigation for Latin America's largest e-commerce and fintech ecosystem. Building highly available, distributed architectures with Java/Spring on Mercado Libre's Fury platform.",
       "hero.cta_cv":       "📄 Download CV",
-      "hero.cta_contact":  "Contact",
       "bento.meli.title":  "Mercado Libre",
       "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
       "bento.tech.title":  "High Scale Backend",
-      "bento.tech.sub":    "Java 17 · Spring · Fury",
+      "bento.tech.sub":    "Java 17 · Spring · Fury Platform",
       "bento.ai.title":    "Artificial Intelligence",
       "bento.ai.sub":      "B.Sc. in AI @ UBP (2026–2028)",
-      "bento.loc.sub":     "Tolosa · Remote ready",
+      "bento.loc.sub":     "Tolosa · Remote Ready",
       "exp.meli.date":     "Nov 2024 – Present",
       "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
       "exp.meli.subd2":    "Jan 2026 – Present",
@@ -1563,12 +1706,13 @@
       "about.edu.label":   "University Education",
       "about.edu.value":   "B.Sc. in Artificial Intelligence · Universidad Blas Pascal (2026–2028)",
       "about.focus.label": "Technical Focus",
-      "about.focus.value": "Backend engineering, high-throughput distributed systems, large-scale fraud prevention, and machine learning.",
+      "about.focus.value": "Backend engineering, high-throughput distributed systems, large-scale fraud prevention, and artificial intelligence.",
       "about.lang.label":  "Languages",
       "about.lang.value":  "Spanish (native) · English (professional)",
       "contact.cv":        "📄 Download CV (PDF)"
     },
     pt: {
+      "nav.engine":        "Engine",
       "nav.stack":         "Stack",
       "nav.experience":    "Experiência",
       "nav.education":     "Educação",
@@ -1577,16 +1721,15 @@
       "nav.contact":       "Contato",
       "hero.badge":        "Disponível para projetos & mentoria",
       "hero.role":         "Prevenção de Fraude @ Mercado Libre",
-      "hero.bio":          "Engenheiro backend focado em detecção e prevenção de fraude em tempo real no maior ecossistema de e-commerce e fintech da América Latina. Construo arquiteturas distribuídas de alta disponibilidade com Java/Spring na plataforma Fury do Mercado Libre.",
+      "hero.bio":          "Engenheiro backend focado em detecção e mitigação de fraude em tempo real no maior ecossistema de e-commerce e fintech da América Latina. Construo arquiteturas distribuídas de alta disponibilidade com Java/Spring na plataforma Fury do Mercado Libre.",
       "hero.cta_cv":       "📄 Baixar CV",
-      "hero.cta_contact":  "Contato",
       "bento.meli.title":  "Mercado Libre",
       "bento.meli.sub":    "Fraud Prevention VIS & Mkt",
       "bento.tech.title":  "High Scale Backend",
-      "bento.tech.sub":    "Java 17 · Spring · Fury",
+      "bento.tech.sub":    "Java 17 · Spring · Fury Platform",
       "bento.ai.title":    "Inteligência Artificial",
       "bento.ai.sub":      "Bacharelado UBP (2026–2028)",
-      "bento.loc.sub":     "Tolosa · Remote ready",
+      "bento.loc.sub":     "Tolosa · Remote Ready",
       "exp.meli.date":     "Nov 2024 – Presente",
       "exp.meli.role2":    "Ssr. Software Engineer · PF IT Backend VIS & Marketing",
       "exp.meli.subd2":    "Jan 2026 – Presente",
@@ -1624,6 +1767,50 @@
     }
   };
 
+  /* ── Interactive Spotlight Mouse Movement ──────────────── */
+  document.querySelectorAll('.spotlight-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  /* ── Toast Notification Function ───────────────────────── */
+  const toast = document.getElementById('toast');
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  /* ── Copy Email Handler ────────────────────────────────── */
+  function setupCopy(btnId) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const email = btn.getAttribute('data-email') || 'pmatiasspergge@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        showToast('✉️ ¡Email copiado: ' + email + '!');
+      });
+    });
+  }
+  setupCopy('copyEmailBtn');
+  setupCopy('copyEmailBtn2');
+
+  /* ── Live Clock (Buenos Aires UTC-3) ───────────────────── */
+  function updateClock() {
+    const clock = document.getElementById('liveClock');
+    if (!clock) return;
+    const now = new Date();
+    const options = { timeZone: 'America/Argentina/Buenos_Aires', hour: '2-digit', minute: '2-digit', hour12: false };
+    clock.textContent = now.toLocaleTimeString('es-AR', options) + ' UTC-3';
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+
   /* ── Language Switcher with LocalStorage ───────────────── */
   let currentLang = localStorage.getItem('user_lang') || 'es';
 
@@ -1647,9 +1834,7 @@
   }
 
   document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      applyLang(btn.getAttribute('data-lang-btn'));
-    });
+    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang-btn')));
   });
 
   /* ── Theme Switcher with LocalStorage ─────────────────── */
@@ -1662,12 +1847,9 @@
     localStorage.setItem('user_theme', dark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
     themeToggle.textContent = dark ? '🌙' : '☀️';
-    themeToggle.setAttribute('aria-label', dark ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
   }
 
-  themeToggle.addEventListener('click', () => {
-    applyTheme(!isDark);
-  });
+  themeToggle.addEventListener('click', () => applyTheme(!isDark));
 
   /* ── Scroll Reveal with IntersectionObserver ──────────── */
   const observer = new IntersectionObserver((entries) => {
@@ -1677,16 +1859,13 @@
         if (parent) {
           const siblings = [...parent.querySelectorAll('.reveal')];
           const idx = siblings.indexOf(entry.target);
-          entry.target.style.transitionDelay = `${idx * 45}ms`;
+          entry.target.style.transitionDelay = `${idx * 40}ms`;
         }
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.08,
-    rootMargin: '0px 0px -30px 0px'
-  });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
