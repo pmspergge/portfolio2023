@@ -2127,6 +2127,31 @@
   updateClock();
   setInterval(updateClock, 30000);
 
+  /* ── Dynamic Live Dates Calculation ───────────────────── */
+  function getDurationString(startDate, endDate, lang) {
+    let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+    if (months < 1) months = 1;
+    const years = Math.floor(months / 12);
+    const remMonths = months % 12;
+
+    if (lang === 'en') {
+      let parts = [];
+      if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`);
+      if (remMonths > 0) parts.push(`${remMonths} mo${remMonths > 1 ? 's' : ''}`);
+      return parts.join(' ');
+    } else if (lang === 'pt') {
+      let parts = [];
+      if (years > 0) parts.push(`${years} ano${years > 1 ? 's' : ''}`);
+      if (remMonths > 0) parts.push(`${remMonths} m${remMonths > 1 ? 'eses' : 'ês'}`);
+      return parts.join(' ');
+    } else {
+      let parts = [];
+      if (years > 0) parts.push(`${years} año${years > 1 ? 's' : ''}`);
+      if (remMonths > 0) parts.push(`${remMonths} mes${remMonths > 1 ? 'es' : ''}`);
+      return parts.join(' y ');
+    }
+  }
+
   /* ── Language Switcher with LocalStorage ───────────────── */
   let currentLang = localStorage.getItem('user_lang') || 'es';
 
@@ -2136,6 +2161,22 @@
     localStorage.setItem('user_lang', lang);
 
     const strings = STRINGS[lang];
+    const now = new Date();
+    const meliTotal = getDurationString(new Date(2024, 10, 1), now, lang);
+    const meliRole2 = getDurationString(new Date(2026, 0, 1), now, lang);
+
+    // Dynamic Live Dates
+    if (lang === 'en') {
+      strings["exp.meli.date"]  = `${meliTotal} (Nov 2024 – Present)`;
+      strings["exp.meli.subd2"] = `Jan 2026 – Present · ${meliRole2}`;
+    } else if (lang === 'pt') {
+      strings["exp.meli.date"]  = `${meliTotal} (Nov 2024 – Presente)`;
+      strings["exp.meli.subd2"] = `Jan 2026 – Presente · ${meliRole2}`;
+    } else {
+      strings["exp.meli.date"]  = `${meliTotal} (Nov 2024 – Presente)`;
+      strings["exp.meli.subd2"] = `Ene 2026 – Presente · ${meliRole2}`;
+    }
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (strings[key] !== undefined) {

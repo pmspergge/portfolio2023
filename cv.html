@@ -339,10 +339,10 @@
       <div class="exp-item">
         <div class="exp-header">
           <span class="company-name">Mercado Libre</span>
-          <span class="exp-date">1 año 10 meses (Nov 2024 – Presente)</span>
+          <span class="exp-date" id="cvMeliTotal">Nov 2024 – Presente</span>
         </div>
 
-        <p class="exp-role">Ssr. Software Engineer · PF IT Backend VIS & Marketing <span style="font-weight:500; color:var(--text-light); font-size:11.5px;">(Ene 2026 – Presente · 8 meses)</span></p>
+        <p class="exp-role">Ssr. Software Engineer · PF IT Backend VIS & Marketing <span style="font-weight:500; color:var(--text-light); font-size:11.5px;" id="cvMeliSubd2">(Ene 2026 – Presente)</span></p>
         <ul class="exp-bullets">
           <li>Desarrollo y mantenimiento de aplicaciones backend en el área de <strong>Fraud Prevention</strong>, equipo VIS & Marketing.</li>
           <li>Construcción de sistemas escalables y de alta disponibilidad con <strong>Java y Spring Boot</strong> sobre la plataforma interna <strong>Fury</strong>, en un entorno de alta demanda con impacto en millones de usuarios en Latam.</li>
@@ -454,6 +454,30 @@
       </div>
     </section>
   </main>
+
+  <script>
+    /* ── Dynamic Live Dates Calculation ───────────────────── */
+    function formatDuration(startDate, endDate) {
+      let months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+      if (months < 1) months = 1;
+      const years = Math.floor(months / 12);
+      const remMonths = months % 12;
+      let parts = [];
+      if (years > 0) parts.push(`${years} año${years > 1 ? 's' : ''}`);
+      if (remMonths > 0) parts.push(`${remMonths} mes${remMonths > 1 ? 'es' : ''}`);
+      return parts.join(' y ');
+    }
+
+    const now = new Date();
+    const meliTotalStr = formatDuration(new Date(2024, 10, 1), now);
+    const meliRole2Str = formatDuration(new Date(2026, 0, 1), now);
+
+    const elTotal = document.getElementById('cvMeliTotal');
+    if (elTotal) elTotal.textContent = `${meliTotalStr} (Nov 2024 – Presente)`;
+
+    const elSubd2 = document.getElementById('cvMeliSubd2');
+    if (elSubd2) elSubd2.textContent = `(Ene 2026 – Presente · ${meliRole2Str})`;
+  </script>
 
 </body>
 </html>
