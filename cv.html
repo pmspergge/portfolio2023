@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Pedro Matias Spergge (Software Engineer)</title>
+  <meta name="description" content="Curriculum Vitae de Pedro Matias Spergge — Ssr. Software Engineer en Mercado Libre (Prevención de Fraude)." />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary:       #4f46e5;
+      --primary-dark:  #3730a3;
+      --text-main:     #0f172a;
+      --text-muted:    #475569;
+      --text-light:    #64748b;
+      --bg:            #f8fafc;
+      --surface:       #ffffff;
+      --border:        #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --font-sans:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono:     'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: #0f172a;
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 30px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Print / Action Floating Toolbar */
+    .toolbar {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .toolbar a, .toolbar button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .toolbar a:hover, .toolbar button:hover {
+      background: var(--primary-dark);
+    }
+
+    .toolbar-back {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #cbd5e1 !important;
+    }
+    .toolbar-back:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: #ffffff !important;
+    }
+
+    /* CV Document Sheet */
+    .cv-sheet {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 44px 48px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 22px;
+      margin-bottom: 22px;
+    }
+
+    .name-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 22px;
+    }
+
+    .section-heading {
+      font-size: 13px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Experience & Education Items */
+    .exp-item {
+      margin-bottom: 16px;
+    }
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .company-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .exp-date {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .exp-role {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .exp-bullets {
+      list-style-type: disc;
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .exp-bullets li {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .exp-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      background: var(--bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .tag.highlight {
+      background: #e0e7ff;
+      border-color: #c7d2fe;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    /* Skills Grid */
+    .skills-table {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 8px 14px;
+      font-size: 13px;
+    }
+
+    .skill-cat {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .skill-val {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Print Styles: Strict 1-Page or Crisp Vector Print */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .cv-sheet {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: 100%;
+      }
+      @page {
+        margin: 1.2cm 1.5cm;
+        size: A4 portrait;
+      }
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <a href="index.html" class="toolbar-back">← Volver al Portfolio</a>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+    </div>
+  </div>
+
+  <main class="cv-sheet">
+    <header>
+      <div class="name-title-row">
+        <h1>Pedro Matias Spergge</h1>
+        <span class="subtitle">Ssr. Software Engineer · Prevención de Fraude & IA</span>
+      </div>
+
+      <div class="contact-bar">
+        <span class="contact-item">📍 Tolosa, La Plata, Buenos Aires</span>
+        <span class="contact-item">✉️ <a href="mailto:pmatiasspergge@gmail.com">pmatiasspergge@gmail.com</a></span>
+        <span class="contact-item">💼 <a href="https://www.linkedin.com/in/pedro-matias-spergge/" target="_blank">linkedin.com/in/pedro-matias-spergge</a></span>
+        <span class="contact-item">🐙 <a href="https://github.com/pmspergge" target="_blank">github.com/pmspergge</a></span>
+        <span class="contact-item">🌐 <a href="https://matisperggedev.web.app/" target="_blank">matisperggedev.web.app</a></span>
+      </div>
+    </header>
+
+    <!-- Resumen Profesional -->
+    <section>
+      <h2 class="section-heading">Perfil Profesional</h2>
+      <p class="summary-text">
+        Ingeniero de Software Backend (Ssr.) en <strong>Mercado Libre</strong> enfocado en sistemas distribuidos de alta concurrencia, resiliencia y prevención de fraude en tiempo real sobre la plataforma Fury con Java 17 y Spring Boot. Con más de 3 años de experiencia en desarrollo full stack y backend para empresas internacionales (Latam y USA). Actualmente cursando la <strong>Licenciatura en Inteligencia Artificial</strong> en la Universidad Blas Pascal (UBP).
+      </p>
+    </section>
+
+    <!-- Experiencia Laboral -->
+    <section>
+      <h2 class="section-heading">Experiencia Laboral</h2>
+
+      <!-- Mercado Libre -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="company-name">Mercado Libre</span>
+          <span class="exp-date">Nov 2024 – Presente</span>
+        </div>
+
+        <p class="exp-role">Ssr. Software Engineer · PF IT Backend VIS & Marketing <span style="font-weight:400; color:var(--text-light); font-size:12px;">(Ene 2026 – Presente)</span></p>
+        <ul class="exp-bullets">
+          <li>Diseño, desarrollo y mantenimiento de microservicios críticos de detección y prevención de fraude sobre la plataforma <strong>Fury</strong> con <strong>Java 17</strong> y <strong>Spring Boot</strong>.</li>
+          <li>Evaluación y mitigación de riesgos transaccionales a escala Latam con latencias de respuesta sub-20ms y arquitectura de alta disponibilidad.</li>
+        </ul>
+
+        <p class="exp-role" style="margin-top: 8px;">Ssr. Software Engineer · PF IT Backend Seller <span style="font-weight:400; color:var(--text-light); font-size:12px;">(Nov 2024 – Ene 2026)</span></p>
+        <ul class="exp-bullets">
+          <li>Desarrollo de integraciones backend y optimización de flujos de onboarding y validación para el ecosistema Seller.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag highlight">Java 17</span>
+          <span class="tag highlight">Spring Boot</span>
+          <span class="tag highlight">Fury Platform</span>
+          <span class="tag">Fraud Prevention</span>
+          <span class="tag">Microservicios</span>
+          <span class="tag">High Throughput</span>
+        </div>
+      </div>
+
+      <!-- AVLA -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="company-name">AVLA</span>
+          <span class="exp-date">Jun 2023 – Nov 2024</span>
+        </div>
+        <p class="exp-role">Full Stack Developer · PortalApp (remoto, Chile)</p>
+        <ul class="exp-bullets">
+          <li>Desarrollo de aplicaciones web y microservicios con Angular 16 y Spring Boot 3 sobre arquitectura cloud en AWS con contenedores Docker y orquestación Kubernetes.</li>
+          <li>Modelado y optimización de consultas en bases de datos PostgreSQL.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Angular 16</span>
+          <span class="tag">Spring Boot 3</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <!-- Techforb -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="company-name">Techforb</span>
+          <span class="exp-date">Abr 2023 – Nov 2024</span>
+        </div>
+        <p class="exp-role">Full Stack Developer (remoto, USA)</p>
+        <ul class="exp-bullets">
+          <li>Construcción de interfaces interactivas y reactivas con Angular y Tailwind CSS integradas a servicios RESTful en Node.js y MongoDB/PostgreSQL.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Angular</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">MongoDB</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educación -->
+    <section>
+      <h2 class="section-heading">Educación & Formación</h2>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="company-name">Universidad Blas Pascal (UBP)</span>
+          <span class="exp-date">Ago 2026 – Feb 2028</span>
+        </div>
+        <p class="exp-role">Licenciatura en Inteligencia Artificial · <span style="color:#16a34a; font-weight:600;">En curso</span></p>
+        <p style="font-size:12.5px; color:var(--text-muted);">Enfoque en Machine Learning, Deep Learning, Procesamiento de Datos y Modelos Predictivos con Python.</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="company-name">IFTS N°29</span>
+          <span class="exp-date">2022 – 2025</span>
+        </div>
+        <p class="exp-role">Tecnicatura Superior en Desarrollo de Software · <span style="color:var(--text-light); font-weight:600;">Graduado</span></p>
+      </div>
+    </section>
+
+    <!-- Skills Técnicos -->
+    <section>
+      <h2 class="section-heading">Habilidades Técnicas</h2>
+      <div class="skills-table">
+        <span class="skill-cat">Backend:</span>
+        <span class="skill-val">Java 17, Spring Boot, Fury Platform (Mercado Libre), Microservicios, REST APIs, Node.js</span>
+
+        <span class="skill-cat">Data & AI:</span>
+        <span class="skill-val">Python, Machine Learning, PostgreSQL, MySQL, MongoDB, Supabase</span>
+
+        <span class="skill-cat">Cloud & DevOps:</span>
+        <span class="skill-val">Docker, Kubernetes, AWS, GitHub Actions (CI/CD), Firebase Hosting</span>
+
+        <span class="skill-cat">Frontend:</span>
+        <span class="skill-val">TypeScript, Angular, HTML5 / Modern CSS, Tailwind CSS, PWA</span>
+
+        <span class="skill-cat">Idiomas:</span>
+        <span class="skill-val">Español (nativo), Inglés (profesional)</span>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
